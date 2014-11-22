@@ -1,0 +1,22 @@
+{
+  "name": "BitcoinTrader-website",
+  "version": "0.0.1",
+  "authors": [
+    "Taivo Käsper <taivo.kasper@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.3",
+    "ui-router": "~0.2.13",
+    "angular-resource": "~1.3.3"
+  },
+  "resolutions": {
+    "angular": "~1.3.3",
+    "angular-resource": "~1.3.3"
+  }
+}

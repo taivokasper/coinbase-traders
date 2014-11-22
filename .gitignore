@@ -1,0 +1,4 @@
+target
+*.iml
+src/main/resources/static/js/libs
+.idea
