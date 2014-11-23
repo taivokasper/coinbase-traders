@@ -22,6 +22,8 @@ public class TransactionService {
 
     @Autowired
     private Coinbase coinbase;
+    @Autowired
+    private ClientService clientService;
 
     public boolean executeTransaction(Client client, BigDecimal currentPriceInUsd) {
         try {
@@ -30,8 +32,12 @@ public class TransactionService {
             } else if (SELL.equals(client.getType())) {
                 return sell(client);
             }
-        } catch (CoinbaseException | IOException e) {
-            LOG.error("Coinbase exception occurred!", e);
+        } catch (CoinbaseException e) {
+            LOG.error("Coinbase exception occurred! Removing \"" + client.getApiKey() + "\" client", e);
+            clientService.removeByApiKey(client.getApiKey());
+            return false;
+        } catch (IOException e) {
+            LOG.error("Unknown IOException occurred!", e);
             return false;
         }
         return false;
