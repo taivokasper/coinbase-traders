@@ -1,0 +1,13 @@
+<div>
+    Register new client with a transaction
+
+    <form name="newClient" ng-submit="submit()">
+        <input type="text" name="apiKey" ng-model="data.apiKey" ng-required="true">
+        <input type="text" name="apiSecret" ng-model="data.apiSecret" ng-required="true">
+        <input type="text" name="type" ng-model="data.type" ng-required="true">
+        <input type="text" name="limit" ng-model="data.limit" ng-required="true">
+        <input type="text" name="amount" ng-model="data.amount" ng-required="true">
+
+        <input type="submit" value="Add new">
+    </form>
+</div>

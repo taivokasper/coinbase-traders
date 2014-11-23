@@ -1,0 +1,15 @@
+<div>
+    Existing client
+
+    <form name="client" ng-submit="submit()">
+        <input type="text" name="apiKey" ng-model="formData.apiKey" ng-required="true">
+
+        <input type="submit" value="Find client">
+    </form>
+
+    <div ng-if="data">
+        <button ng-click="stop()">Remove and stop</button>
+    </div>
+
+    {{data}}
+</div>
