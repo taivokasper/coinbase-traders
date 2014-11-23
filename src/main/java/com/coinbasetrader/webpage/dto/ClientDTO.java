@@ -1,4 +1,4 @@
-package com.bitcointrader.webpage.dto;
+package com.coinbasetrader.webpage.dto;
 
 import java.math.BigDecimal;
 

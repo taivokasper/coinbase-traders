@@ -1,6 +1,6 @@
-package com.bitcointrader.webpage.service;
+package com.coinbasetrader.webpage.service;
 
-import com.bitcointrader.webpage.model.Client;
+import com.coinbasetrader.webpage.model.Client;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

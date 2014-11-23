@@ -1,10 +1,18 @@
 <div>
     Existing client
 
-    <form name="client" ng-submit="submit()">
-        <input type="text" name="apiKey" ng-model="formData.apiKey" ng-required="true">
+    <form name="client" class="form-horizontal" ng-submit="submit()">
+        <div class="form-group required">
+            <label class="col-sm-8 col-md-4 control-label">ApiKey:</label>
 
-        <input type="submit" value="Find client">
+            <div class="col-sm-8">
+                <input type="text" name="apiKey" ng-model="formData.apiKey" ng-required="true">
+            </div>
+        </div>
+
+        <div class="btn-toolbar">
+            <input type="submit" value="Find client">
+        </div>
     </form>
 
     <div ng-if="data">

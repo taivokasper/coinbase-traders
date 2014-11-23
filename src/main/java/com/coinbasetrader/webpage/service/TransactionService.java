@@ -1,9 +1,9 @@
-package com.bitcointrader.webpage.service;
+package com.coinbasetrader.webpage.service;
 
-import com.bitcointrader.webpage.model.Client;
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.entity.Transfer;
 import com.coinbase.api.exception.CoinbaseException;
+import com.coinbasetrader.webpage.model.Client;
 import org.joda.money.Money;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

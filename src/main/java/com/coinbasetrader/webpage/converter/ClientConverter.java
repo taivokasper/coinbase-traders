@@ -1,10 +1,10 @@
-package com.bitcointrader.webpage.converter;
+package com.coinbasetrader.webpage.converter;
 
-import com.bitcointrader.webpage.dto.ClientDTO;
-import com.bitcointrader.webpage.model.Client;
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.CoinbaseBuilder;
 import com.coinbase.api.entity.Transfer;
+import com.coinbasetrader.webpage.dto.ClientDTO;
+import com.coinbasetrader.webpage.model.Client;
 
 import static com.coinbase.api.entity.Transfer.Type.BUY;
 import static com.coinbase.api.entity.Transfer.Type.SELL;

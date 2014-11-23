@@ -1,9 +1,9 @@
-package com.bitcointrader.webpage.controller;
+package com.coinbasetrader.webpage.controller;
 
-import com.bitcointrader.webpage.converter.ClientConverter;
-import com.bitcointrader.webpage.dto.ClientDTO;
-import com.bitcointrader.webpage.model.Client;
-import com.bitcointrader.webpage.service.ClientService;
+import com.coinbasetrader.webpage.converter.ClientConverter;
+import com.coinbasetrader.webpage.dto.ClientDTO;
+import com.coinbasetrader.webpage.model.Client;
+import com.coinbasetrader.webpage.service.ClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/rest/client")
+@RequestMapping(value = "rest/client")
 public class ClientController {
     private static final Logger LOG = LoggerFactory.getLogger(ClientController.class);
 
