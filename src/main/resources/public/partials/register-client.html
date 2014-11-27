@@ -1,44 +1,30 @@
-<div>
-    Register new client with a transaction
+<div class="center-block col-md-6">
+    <h2>Register a new client</h2>
 
-    <form name="newClient" class="form-horizontal" ng-submit="submit()" novalidate>
+    <form name="newClient" novalidate>
         <div class="form-group required">
-            <label class="col-sm-8 col-md-4 control-label">ApiKey:</label>
-
-            <div class="col-sm-8">
-                <input type="text" name="apiKey" ng-model="data.apiKey" ng-required="true">
-            </div>
+            <label for="api-key">ApiKey</label>
+            <input id="api-key" type="text" class="form-control" name="apiKey"
+                   ng-model="data.apiKey" ng-required="true">
         </div>
         <div class="form-group required">
-            <label class="col-sm-8 col-md-4 control-label">ApiSecret:</label>
-
-            <div class="col-sm-8">
-                <input type="text" name="apiSecret" ng-model="data.apiSecret" ng-required="true">
-            </div>
+            <label for="api-secret">ApiSecret</label>
+            <input id="api-secret" type="text" class="form-control" name="apiSecret"
+                   ng-model="data.apiSecret" ng-required="true">
         </div>
         <div class="form-group required">
-            <label class="col-sm-8 col-md-4 control-label">Transaction type [sell, buy]:</label>
-
-            <div class="col-sm-8">
-                <input type="text" name="type" ng-model="data.type" ng-required="true">
-            </div>
+            <label for="type">Transaction type [sell, buy]:</label>
+            <input id="type" type="text" class="form-control" name="type" ng-model="data.type" ng-required="true">
         </div>
         <div class="form-group required">
-            <label class="col-sm-8 col-md-4 control-label">Limit. If buy then maximum buy price and if sell then minimum sell price:</label>
-
-            <div class="col-sm-8">
-                <input type="text" name="limit" ng-model="data.limit" ng-required="true">
-            </div>
+            <label for="limit">Limit. If buy then maximum buy price and if sell then minimum sell price</label>
+            <input id="limit" type="text" class="form-control" name="limit" ng-model="data.limit" ng-required="true">
         </div>
         <div class="form-group required">
-            <label class="col-sm-8 col-md-4 control-label">Amount. When selling then in BTC and when buying then in EUR:</label>
+            <label for="amount">Amount. When selling then in BTC and when buying then in EUR</label>
+            <input id="amount" type="text" class="form-control" name="amount" ng-model="data.amount" ng-required="true">
+        </div>
 
-            <div class="col-sm-8">
-                <input type="text" name="amount" ng-model="data.amount" ng-required="true">
-            </div>
-        </div>
-        <div class="btn-toolbar">
-            <input type="submit" value="Add new">
-        </div>
+        <button class="btn btn-success" ng-click="submit()">Add new</button>
     </form>
 </div>

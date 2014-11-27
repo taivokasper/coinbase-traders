@@ -1,16 +1,16 @@
-/*jslint devel: true */
-/* global app: true, angular */
+/* globals angular */
 
-app = angular.module('app', ['ngResource', 'ui.router']);
+var app = angular.module('app', ['ngResource', 'ui.router']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
+    'use strict';
+
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('front-page', {
             url: '/',
-            templateUrl: 'partials/front-page.html',
-            controller: 'FrontPageCtrl'
+            templateUrl: 'partials/front-page.html'
         })
         .state('new', {
             url: '/new',
@@ -27,7 +27,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('error', {
             url: '^/error',
-            templateUrl: 'partials/error-page.html',
-            controller: 'ErrorCtrl'
+            templateUrl: 'partials/error-page.html'
         });
 });

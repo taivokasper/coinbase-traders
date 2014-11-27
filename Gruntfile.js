@@ -46,8 +46,7 @@ module.exports = function (grunt) {
 
         includeSource: {
             options: {
-                basePath: '<%= conf.appDir %>',
-                baseUrl: '/'
+                basePath: '<%= conf.appDir %>'
             },
             myTarget: {
                 files: {

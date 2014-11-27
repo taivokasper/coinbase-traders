@@ -4,34 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>BitcoinTrader</title>
+    <title>CoinbaseTrader</title>
 
     <!-- bower:css -->
+    <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
     <!-- endbower -->
 
     <!-- include: "type": "css", "files": "styles/**/*.css" -->
-    <link href="/styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
     <!-- /include -->
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway|Pacifico' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-controller="RootCtrl">
     <header>
-        Bitcoin trader
+        <a ui-sref="front-page">
+            <h1>CoinbaseTrader</h1>
+        </a>
     </header>
     <main ui-view></main>
 
     <!-- bower:js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/ui-router/release/angular-ui-router.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
 
     <!-- include: "type": "js", "files": ["app/**/*.js"] -->
-    <script src="/app/app.js"></script>
-    <script src="/app/controllers.js"></script>
-    <script src="/app/directives.js"></script>
-    <script src="/app/factories.js"></script>
-    <script src="/app/services.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/resources.js"></script>
+    <script src="app/services.js"></script>
     <!-- /include -->
 </body>
 </html>

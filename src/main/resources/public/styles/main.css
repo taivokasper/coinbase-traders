@@ -1,0 +1,61 @@
+body {
+  padding-bottom: 60px;
+  color: #000;
+  background: #fff;
+  font-family: 'Raleway', sans-serif; }
+
+h2 {
+  margin-bottom: 40px; }
+
+a {
+  color: #38d5f4; }
+  a:hover {
+    color: #23527C;
+    text-decoration: none; }
+
+header {
+  height: 200px;
+  margin-bottom: 40px;
+  padding-top: 60px;
+  background: #F38630;
+  text-align: center; }
+  @media (max-width: 1000px) {
+    header {
+      height: 150px;
+      padding-top: 50px; } }
+  header h1 {
+    display: inline;
+    margin: 0;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    font-size: 70px; }
+    @media (max-width: 1000px) {
+      header h1 {
+        font-size: 40px; } }
+
+main {
+  width: 1000px;
+  margin: 0 auto; }
+  @media (max-width: 1000px) {
+    main {
+      width: 90%; } }
+  main .options {
+    margin-top: 100px;
+    text-align: center; }
+    main .options a {
+      display: block;
+      margin: 20px 0;
+      font-size: 30px; }
+  main form {
+    margin: 0 auto; }
+    main form label {
+      display: block; }
+  main .clients-table {
+    margin: 30px 0; }
+
+.center-block {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*# sourceMappingURL=main.css.map */
