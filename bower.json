@@ -16,7 +16,8 @@
     "ui-router": "~0.2.13",
     "angular-resource": "~1.3.3",
     "angular-mocks": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "ng-table": "latest"
   },
   "resolutions": {
     "angular": "~1.3.3",

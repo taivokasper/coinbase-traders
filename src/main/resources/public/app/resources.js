@@ -12,6 +12,7 @@ app.factory('ClientResource', function ($resource) {
     'use strict';
 
     return $resource('rest/client/:apiKey', {
-        apiKey: '@apiKey'
+        apiKey: '@apiKey',
+        isArray: true
     });
 });

@@ -1,4 +1,5 @@
-/* global app, angular */
+/* jshint newcap: false */
+/* global app, angular, ngTableParams */
 
 app.controller('RootCtrl', function ($scope) {});
 
@@ -17,19 +18,22 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
     };
 });
 
-app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ClientResource) {
+app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTableParams, ClientResource) {
     'use strict';
 
     $scope.formData = {};
 
     $scope.submit = function () {
-        ClientResource.get({apiKey: $scope.formData.apiKey}, function (data) {
-            $log.info(data);
 
-            if (angular.equals({}, data)) {
-                $scope.data = null;
+        // TODO it should return array from BE
+        ClientResource.get({apiKey: $scope.formData.apiKey}, function (clients) {
+            $log.info(clients);
+
+            if (angular.equals({}, clients)) {
+                $scope.clients = null;
             } else {
-                $scope.data = data;
+                $scope.clients = [clients];
+                setTableParams();
             }
         }, function (err) {
             $log.error('An error occurred', err);
@@ -54,4 +58,18 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, Clien
         }
     };
     init();
+
+    var setTableParams = function () {
+        $scope.tableParams = new ngTableParams({
+            page: 1,
+            count: $scope.clients.length + 10
+        }, {
+            total: $scope.clients.length,
+            counts: [],
+            getData: function ($defer, params) {
+                params.total($scope.clients.length);
+                $defer.resolve($scope.clients.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            }
+        });
+    };
 });
