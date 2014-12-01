@@ -40,9 +40,9 @@
             <label ng-if="data.type == 'buy'" for="amount">Amount in EUR</label>
             <label ng-if="data.type == 'sell'" for="amount">Amount in BTC</label>
             <input id="amount" type="text" class="form-control" name="amount" ng-model="data.amount"
-                   ng-required="true" fcsa-number="{ min: 0, maxDecimals: 6, preventInvalidInput: true }">
+                   ng-required="true" fcsa-number="{ min: 0, maxDecimals: 8, preventInvalidInput: true }">
             <div ng-show="newClient.amount.$invalid && newClient.amount.$dirty">
-                Amount has to be a number with at most 6 decimal places
+                Amount has to be a number with at most 8 decimal places
             </div>
         </div>
 
