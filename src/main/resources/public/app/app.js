@@ -1,6 +1,6 @@
 /* globals angular */
 
-var app = angular.module('app', ['ngResource', 'ui.router', 'ngTable']);
+var app = angular.module('app', ['ngResource', 'ui.router', 'ngTable', 'fcsa-number']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     'use strict';

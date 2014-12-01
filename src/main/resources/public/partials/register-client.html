@@ -1,23 +1,23 @@
 <div class="center-block col-md-6">
     <h2>Register a new client</h2>
-  {{data}}
+
     <form name="newClient" novalidate>
         <div class="form-group required">
           <label for="random-id">Transaction id</label>
           <input id="random-id" type="text" class="form-control" name="randomId"
                  ng-model="data.randomId" ng-required="true" ng-readonly="true">
         </div>
-        <div class="form-group required">
+        <div class="form-group required" ng-class="{'has-error': newClient.apiKey.$invalid && newClient.apiKey.$dirty}">
             <label for="api-key">ApiKey</label>
             <input id="api-key" type="text" class="form-control" name="apiKey"
                    ng-model="data.apiKey" ng-required="true">
         </div>
-        <div class="form-group required">
+        <div class="form-group required" ng-class="{'has-error': newClient.apiSecret.$invalid && newClient.apiSecret.$dirty}">
             <label for="api-secret">ApiSecret</label>
             <input id="api-secret" type="text" class="form-control" name="apiSecret"
                    ng-model="data.apiSecret" ng-required="true">
         </div>
-        <div class="form-group required">
+        <div class="form-group required" ng-class="{'has-error': newClient.type.$invalid && newClient.type.$dirty}">
             <label class="radio-inline">
                 <input type="radio" value="buy" class="form-control" name="type" ng-model="data.type" ng-required="true">
                 Buy
@@ -27,15 +27,25 @@
                 Sell
             </label>
         </div>
-        <div class="form-group required">
-            <label for="limit">Limit. If buy then maximum buy price and if sell then minimum sell price</label>
-            <input id="limit" type="text" class="form-control" name="limit" ng-model="data.limit" ng-required="true">
+        <div class="form-group required" ng-class="{'has-error': newClient.limit.$invalid && newClient.limit.$dirty}">
+            <label ng-if="data.type == 'buy'" for="limit">Highest limit in USD. If price goes below this limit then buy</label>
+            <label ng-if="data.type == 'sell'" for="limit">Lowest limit in USD. If prices goes above this then sell</label>
+            <input id="limit" type="text" class="form-control" name="limit" ng-model="data.limit" ng-required="true"
+                   fcsa-number="{ min: 0, maxDecimals: 2, preventInvalidInput: true }">
+            <span class="help-inline" ng-show="newClient.limit.$invalid && newClient.limit.$dirty">
+                Limit has to be a number with at most 2 decimal places
+            </span>
         </div>
-        <div class="form-group required">
-            <label for="amount">Amount. When selling then in BTC and when buying then in EUR</label>
-            <input id="amount" type="text" class="form-control" name="amount" ng-model="data.amount" ng-required="true">
+        <div class="form-group required" ng-class="{'has-error': newClient.amount.$invalid && newClient.amount.$dirty}">
+            <label ng-if="data.type == 'buy'" for="amount">Amount in EUR</label>
+            <label ng-if="data.type == 'sell'" for="amount">Amount in BTC</label>
+            <input id="amount" type="text" class="form-control" name="amount" ng-model="data.amount"
+                   ng-required="true" fcsa-number="{ min: 0, maxDecimals: 6, preventInvalidInput: true }">
+            <div ng-show="newClient.amount.$invalid && newClient.amount.$dirty">
+                Amount has to be a number with at most 6 decimal places
+            </div>
         </div>
 
-        <button class="btn btn-success" ng-click="submit()">Add new</button>
+        <button class="btn btn-success" ng-click="submit(newClient.$valid)" ng-disabled="!newClient.$valid">Add new</button>
     </form>
 </div>

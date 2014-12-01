@@ -14,7 +14,10 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
         $scope.data.randomId = random.randomId;
     });
 
-    $scope.submit = function () {
+    $scope.submit = function (valid) {
+        if (!valid) {
+            return;
+        }
         RegisterClientResource.register($scope.data, function () {
             $log.info('Submitted');
             $state.go('existing', {apiKey: $scope.data.apiKey});
