@@ -18,12 +18,14 @@ header {
   height: 200px;
   margin-bottom: 40px;
   padding-top: 60px;
-  background: #f38630;
+  background: #F38630;
   text-align: center; }
   @media (max-width: 1000px) {
     header {
       height: 150px;
       padding-top: 50px; } }
+  header a {
+    text-decoration: none; }
   header h1 {
     display: inline;
     margin: 0;
@@ -58,3 +60,5 @@ main {
   float: none;
   margin-left: auto;
   margin-right: auto; }
+
+/*# sourceMappingURL=main.css.map */
