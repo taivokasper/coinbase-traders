@@ -8,11 +8,22 @@ app.factory('RegisterClientResource', function ($resource) {
     });
 });
 
+app.factory('RandomResource', function ($resource) {
+    'use strict';
+
+    return $resource('rest/client/random', {}, {
+        getRandom: {method: 'GET'}
+    });
+});
+
 app.factory('ClientResource', function ($resource) {
     'use strict';
 
-    return $resource('rest/client/:apiKey', {
+    return $resource('rest/client/:apiKey:randomId', {
         apiKey: '@apiKey',
-        isArray: true
+        randomId: '@randomId'
+    }, {
+        removeTransaction: {method: 'DELETE', params: {randomId: ''}},
+        getTransactions: {method: 'GET', params: {apiKey: ''}, isArray: true}
     });
 });

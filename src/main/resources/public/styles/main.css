@@ -11,13 +11,14 @@ a {
   color: #38d5f4; }
   a:hover {
     color: #23527C;
-    text-decoration: none; }
+    text-decoration: none;
+    cursor: pointer; }
 
 header {
   height: 200px;
   margin-bottom: 40px;
   padding-top: 60px;
-  background: #F38630;
+  background: #f38630;
   text-align: center; }
   @media (max-width: 1000px) {
     header {
@@ -57,5 +58,3 @@ main {
   float: none;
   margin-left: auto;
   margin-right: auto; }
-
-/*# sourceMappingURL=main.css.map */

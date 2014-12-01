@@ -1,11 +1,13 @@
 package com.coinbasetrader.webpage.service;
 
+import com.coinbase.api.Coinbase;
 import com.coinbasetrader.webpage.model.Client;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.coinbase.api.entity.Transfer.Type.BUY;
@@ -24,12 +26,23 @@ public class ClientService {
                 .collect(Collectors.toList());
     }
 
-    public Client getByApiKey(String apiKey) {
-        for (Client registeredClient : registeredClients) {
-            if (registeredClient.getApiKey().equals(apiKey)) {
-                return registeredClient;
-            }
+    public List<Client> getByApiKey(String apiKey) {
+        return registeredClients.stream()
+                .filter(clientI -> clientI.getApiKey().equals(apiKey))
+                .collect(Collectors.toList());
+    }
+
+    public Coinbase getCoinbaseByApiKey(String apiKey) {
+        List<Client> byApiKey = getByApiKey(apiKey);
+        if (byApiKey.isEmpty()) {
+            return null;
         }
+
+        Optional<Client> first = byApiKey.stream().filter(clientI -> clientI.getCoinbase() != null).findFirst();
+        if (first.isPresent()) {
+            return first.get().getCoinbase();
+        }
+        removeByApiKey(apiKey);
         return null;
     }
 
@@ -37,7 +50,15 @@ public class ClientService {
         registeredClients.add(client);
     }
 
+    public void removeByRandomId(String random) {
+        registeredClients.removeIf(i -> random.equals(i.getRandomId()));
+    }
+
     public void removeByApiKey(String apiKey) {
-        registeredClients.removeIf((i) -> apiKey.equals(i.getApiKey()));
+        registeredClients.removeIf(i -> i.getApiKey().equals(apiKey));
+    }
+
+    public Long getNumberOfRegisteredTransactions() {
+        return (long) registeredClients.size();
     }
 }

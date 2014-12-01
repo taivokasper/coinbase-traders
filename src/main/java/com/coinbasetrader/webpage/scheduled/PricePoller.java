@@ -40,7 +40,7 @@ public class PricePoller {
                 boolean done = transactionService.executeTransaction(client, spotPrice.getAmount());
                 if (done) {
                     LOG.info("Transaction is done");
-                    clientService.removeByApiKey(client.getApiKey());
+                    clientService.removeByRandomId(client.getRandomId());
                 }
             });
         } catch (IOException | CoinbaseException e) {

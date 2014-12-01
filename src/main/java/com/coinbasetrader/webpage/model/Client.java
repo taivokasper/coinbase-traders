@@ -6,14 +6,16 @@ import com.coinbase.api.entity.Transfer;
 import java.math.BigDecimal;
 
 public class Client {
+    private String randomId;
     private String apiKey;
     private Coinbase coinbase;
     private BigDecimal limit;
     private BigDecimal amount;
     private Transfer.Type type;
 
-    public Client(Coinbase coinbase, String apiKey, BigDecimal limit, BigDecimal amount, Transfer.Type type) {
+    public Client(Coinbase coinbase, String randomId, String apiKey, BigDecimal limit, BigDecimal amount, Transfer.Type type) {
         this.coinbase = coinbase;
+        this.randomId = randomId;
         this.apiKey = apiKey;
         this.limit = limit;
         this.amount = amount;
@@ -60,10 +62,19 @@ public class Client {
         this.type = type;
     }
 
+    public String getRandomId() {
+        return randomId;
+    }
+
+    public void setRandomId(String randomId) {
+        this.randomId = randomId;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
-                "apiKey='" + apiKey + '\'' +
+                "randomId='" + randomId + '\'' +
+                ", apiKey='" + apiKey + '\'' +
                 ", coinbase=" + coinbase +
                 ", limit=" + limit +
                 ", amount=" + amount +

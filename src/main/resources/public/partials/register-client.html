@@ -1,7 +1,12 @@
 <div class="center-block col-md-6">
     <h2>Register a new client</h2>
-
+  {{data}}
     <form name="newClient" novalidate>
+        <div class="form-group required">
+          <label for="random-id">Transaction id</label>
+          <input id="random-id" type="text" class="form-control" name="randomId"
+                 ng-model="data.randomId" ng-required="true" ng-readonly="true">
+        </div>
         <div class="form-group required">
             <label for="api-key">ApiKey</label>
             <input id="api-key" type="text" class="form-control" name="apiKey"
@@ -13,8 +18,14 @@
                    ng-model="data.apiSecret" ng-required="true">
         </div>
         <div class="form-group required">
-            <label for="type">Transaction type [sell, buy]:</label>
-            <input id="type" type="text" class="form-control" name="type" ng-model="data.type" ng-required="true">
+            <label class="radio-inline">
+                <input type="radio" value="buy" class="form-control" name="type" ng-model="data.type" ng-required="true">
+                Buy
+            </label>
+            <label class="radio-inline">
+                <input type="radio" value="sell" class="form-control" name="type" ng-model="data.type" ng-required="true">
+                Sell
+            </label>
         </div>
         <div class="form-group required">
             <label for="limit">Limit. If buy then maximum buy price and if sell then minimum sell price</label>

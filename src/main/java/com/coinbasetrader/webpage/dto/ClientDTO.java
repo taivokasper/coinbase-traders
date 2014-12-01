@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class ClientDTO {
 
+    private String randomId;
     private String apiKey;
     private String apiSecret;
     private BigDecimal limit;
@@ -48,5 +49,13 @@ public class ClientDTO {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getRandomId() {
+        return randomId;
+    }
+
+    public void setRandomId(String randomId) {
+        this.randomId = randomId;
     }
 }

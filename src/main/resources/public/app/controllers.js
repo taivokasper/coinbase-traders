@@ -3,10 +3,16 @@
 
 app.controller('RootCtrl', function ($scope) {});
 
-app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterClientResource) {
+app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterClientResource, RandomResource) {
     'use strict';
 
-    $scope.data = {};
+    $scope.data = {
+        type: 'buy'
+    };
+
+    RandomResource.getRandom({}, function (random) {
+        $scope.data.randomId = random.randomId;
+    });
 
     $scope.submit = function () {
         RegisterClientResource.register($scope.data, function () {
@@ -23,16 +29,14 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
 
     $scope.formData = {};
 
-    $scope.submit = function () {
-
-        // TODO it should return array from BE
-        ClientResource.get({apiKey: $scope.formData.apiKey}, function (clients) {
+    $scope.loadData = function () {
+        ClientResource.getTransactions({apiKey: $scope.formData.apiKey}, function (clients) {
             $log.info(clients);
 
             if (angular.equals({}, clients)) {
                 $scope.clients = null;
             } else {
-                $scope.clients = [clients];
+                $scope.clients = clients;
                 setTableParams();
             }
         }, function (err) {
@@ -40,10 +44,14 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
         });
     };
 
-    $scope.stop = function () {
-        ClientResource.delete({apiKey: $scope.formData.apiKey}, function () {
+    $scope.submit = function () {
+        $state.go('existing', {apiKey: $scope.formData.apiKey}, {reload: true});
+    };
+
+    $scope.stop = function (randomId) {
+        ClientResource.removeTransaction({randomId: randomId}, function () {
             $log.info('Successfully removed');
-            $state.go('front-page');
+            $state.go('existing', {apiKey: $scope.formData.apiKey}, {reload: true});
         }, function (err) {
             $log.error('An error occurred', err);
         });
@@ -54,7 +62,7 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
             $scope.formData = {
                 apiKey: $stateParams.apiKey
             };
-            $scope.submit();
+            $scope.loadData();
         }
     };
     init();

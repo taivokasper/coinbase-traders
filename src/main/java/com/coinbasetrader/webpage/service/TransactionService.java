@@ -33,8 +33,8 @@ public class TransactionService {
                 return sell(client);
             }
         } catch (CoinbaseException e) {
-            LOG.error("Coinbase exception occurred! Removing \"" + client.getApiKey() + "\" client", e);
-            clientService.removeByApiKey(client.getApiKey());
+            LOG.error("Coinbase exception occurred! Removing randomId \"" + client.getRandomId() + "\" client", e);
+            clientService.removeByRandomId(client.getRandomId());
             return false;
         } catch (IOException e) {
             LOG.error("Unknown IOException occurred!", e);

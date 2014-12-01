@@ -17,20 +17,20 @@
     <section class="clients-table">
         <table ng-table="tableParams" class="table">
             <tr ng-repeat="client in $data">
+                <td data-title="'Transaction id'">
+                  {{client.randomId}}
+                </td>
                 <td data-title="'Type'">
                     {{client.type}}
-                </td>
-                <td data-title="'Api key'">
-                    {{client.apiKey}}
-                </td>
-                <td data-title="'Api secret'">
-                    {{client.apiSecret}}
                 </td>
                 <td data-title="'Limit'">
                     {{client.limit}}
                 </td>
                 <td data-title="'Amount'">
                     {{client.amount}}
+                </td>
+                <td data-title="'Actions'">
+                  <a ng-click="stop(client.randomId)">Remove</a>
                 </td>
             </tr>
         </table>
