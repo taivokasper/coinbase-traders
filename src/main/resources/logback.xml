@@ -34,10 +34,6 @@
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="BUGSNAG" />
     </logger>
-    <logger name="com.coinbasetrader.webpage.scheduled" level="OFF" additivity="false">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="BUGSNAG" />
-    </logger>
 
     <!-- Global Root logger -->
     <root level="DEBUG">
