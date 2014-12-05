@@ -16,6 +16,8 @@
     <!-- /include -->
 
     <link href='http://fonts.googleapis.com/css?family=Raleway|Pacifico' rel='stylesheet' type='text/css'>
+    <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js" data-apikey="92bac0f02cba1f9a6ae2101cfda7d46a">
+    </script>
 </head>
 
 <body ng-controller="RootCtrl">
@@ -43,5 +45,9 @@
     <script src="app/resources.js"></script>
     <script src="app/services.js"></script>
     <!-- /include -->
+
+    <script>
+        Bugsnag.notify("ErrorName", "Test Error");
+    </script>
 </body>
 </html>

@@ -1,28 +1,28 @@
 /* jshint newcap: false */
-/* global app, angular, ngTableParams */
+/* globals app */
 
 app.controller('RootCtrl', function ($scope) {});
 
 app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterClientResource, RandomResource) {
     'use strict';
 
-    $scope.data = {
+    $scope.client = {
         type: 'buy'
     };
 
-    RandomResource.getRandom({}, function (random) {
-        $scope.data.randomId = random.randomId;
+    RandomResource.getRandom({}).$promise.then(function (random) {
+        $scope.client.randomId = random.randomId;
     });
 
-    $scope.submit = function (valid) {
-        if (!valid) {
+    $scope.submit = function () {
+        if ($scope.newClient.$invalid) {
             return;
         }
-        RegisterClientResource.register($scope.data, function () {
-            $log.info('Submitted');
-            $state.go('existing', {apiKey: $scope.data.apiKey});
-        }, function () {
-            $log.error('An error occurred');
+        RegisterClientResource.register($scope.client).$promise.then(function () {
+            $log.info('Submitted registering client');
+            $state.go('existing', {apiKey: $scope.client.apiKey});
+        }).catch(function () {
+            $log.error('An error occurred while registering client');
         });
     };
 });
@@ -30,33 +30,16 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
 app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTableParams, ClientResource) {
     'use strict';
 
-    $scope.formData = {};
-
-    $scope.loadData = function () {
-        ClientResource.getTransactions({apiKey: $scope.formData.apiKey}, function (clients) {
-            $log.info(clients);
-
-            if (angular.equals({}, clients)) {
-                $scope.clients = null;
-            } else {
-                $scope.clients = clients;
-                setTableParams();
-            }
-        }, function (err) {
-            $log.error('An error occurred', err);
-        });
-    };
-
     $scope.submit = function () {
         $state.go('existing', {apiKey: $scope.formData.apiKey}, {reload: true});
     };
 
     $scope.stop = function (randomId) {
-        ClientResource.removeTransaction({randomId: randomId}, function () {
+        ClientResource.removeTransaction({randomId: randomId}).$promise.then(function () {
             $log.info('Successfully removed');
             $state.go('existing', {apiKey: $scope.formData.apiKey}, {reload: true});
-        }, function (err) {
-            $log.error('An error occurred', err);
+        }).catch(function (error) {
+            $log.error('An error occurred', error);
         });
     };
 
@@ -65,10 +48,24 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
             $scope.formData = {
                 apiKey: $stateParams.apiKey
             };
-            $scope.loadData();
+            loadClient();
         }
     };
-    init();
+
+    var loadClient = function () {
+        ClientResource.getTransactions({apiKey: $scope.formData.apiKey}).$promise.then(function (clients) {
+            $log.info(clients);
+
+            if (angular.equals({}, clients)) {
+                $scope.clients = null;
+            } else {
+                $scope.clients = clients;
+                setTableParams();
+            }
+        }).catch(function (err) {
+            $log.error('An error occurred', err);
+        });
+    };
 
     var setTableParams = function () {
         $scope.tableParams = new ngTableParams({
@@ -83,4 +80,5 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
             }
         });
     };
+    init();
 });

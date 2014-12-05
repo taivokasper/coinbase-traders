@@ -15,10 +15,10 @@
     </form>
 
     <section class="clients-table">
-        <table ng-table="tableParams" class="table">
-            <tr ng-repeat="client in $data">
-                <td data-title="'Transaction id'">
-                  {{client.randomId}}
+        <table ng-table class="table">
+            <tr ng-repeat="client in clients">
+                <td  data-title="'Name'">
+                    {{client.randomId}}
                 </td>
                 <td data-title="'Type'">
                     {{client.type}}
@@ -30,13 +30,9 @@
                     {{client.amount}}
                 </td>
                 <td data-title="'Actions'">
-                  <a ng-click="stop(client.randomId)">Remove</a>
+                    <a ng-click="stop(client.randomId)">Remove</a>
                 </td>
             </tr>
         </table>
     </section>
-
-    <div ng-if="data">
-        <button class="btn btn-danger" ng-click="stop()">Remove and stop</button>
-    </div>
 </div>

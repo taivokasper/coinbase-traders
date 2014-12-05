@@ -55,6 +55,8 @@ main {
       display: block; }
   main .clients-table {
     margin: 30px 0; }
+    main .clients-table div[ng-table-pagination] {
+      display: none; }
 
 .center-block {
   float: none;

@@ -63,5 +63,4 @@ public class ClientController {
         LOG.info("Removing client with randomId: " + randomId);
         clientService.removeByRandomId(randomId);
     }
-
 }
