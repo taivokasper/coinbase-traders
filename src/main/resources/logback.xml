@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} %5p %c{0}.%method\(%file:%line\) - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="BUGSNAG" class="com.codereligion.bugsnag.logback.Appender">
+        <apiKey>${BUGSNAG_API_KEY}</apiKey>
+
+        <!-- optional (default: false), allows switching between http and https -->
+        <sslEnabled>false</sslEnabled>
+
+        <!-- optional (default: production), the current release stage for the application -->
+        <releaseStage>staging</releaseStage>
+
+        <!-- optional (default: production), comma separated set of stage names which is matched against
+        the releaseStage to decide whether to send the notification or not -->
+        <notifyReleaseStages>staging,production</notifyReleaseStages>
+
+        <!-- optional (default: empty), comma separated set of package names which is used to
+        highlight project specific lines of exception stacktraces -->
+        <projectPackages>com.coinbasetrader.webpage</projectPackages>
+
+        <!-- optional (default: notify.bugsnag.com), the url to notify -->
+        <endpoint>notify.bugsnag.com</endpoint>
+    </appender>
+
+
+    <logger name="org.springframework" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="BUGSNAG" />
+    </logger>
+    <logger name="com.coinbasetrader.webpage.scheduled" level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="BUGSNAG" />
+    </logger>
+
+    <!-- Global Root logger -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="BUGSNAG" />
+    </root>
+</configuration>
