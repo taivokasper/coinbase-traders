@@ -18,7 +18,8 @@
     "angular-mocks": "latest",
     "bootstrap": "latest",
     "ng-table": "latest",
-    "angular-fcsa-number": "~1.5.3"
+    "angular-fcsa-number": "~1.5.3",
+    "font-awesome": "latest"
   },
   "resolutions": {
     "angular": "~1.3.3",

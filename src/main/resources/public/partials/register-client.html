@@ -57,6 +57,9 @@
             </div>
         </div>
 
-        <button class="btn btn-success" ng-click="submit()" ng-disabled="newClient.$invalid">Add new</button>
+        <button class="btn btn-success" ng-click="submit()" loading="registeringClient"
+                ng-disabled="newClient.$invalid || registeringClient">
+            Add new
+        </button>
     </form>
 </div>

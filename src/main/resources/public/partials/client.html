@@ -1,4 +1,4 @@
-<div class="center-block col-md-6">
+<div class="center-block col-md-8">
     <h2>Existing clients</h2>
 
     <form name="clientSearchForm" novalidate>
@@ -8,7 +8,10 @@
                        ng-model="search.apiKey" ng-required="true" placeholder="ApiKey">
 
                 <span class="input-group-btn">
-                    <button class="btn btn-warning" ng-click="submit()">Find client</button>
+                    <button class="btn btn-warning" ng-click="searchClient()" loading="searchingClient"
+                            ng-disabled="searchingClient">
+                        Find client
+                    </button>
                 </span>
             </div>
         </div>

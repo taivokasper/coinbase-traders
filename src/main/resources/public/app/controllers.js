@@ -18,11 +18,15 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
         if ($scope.newClient.$invalid) {
             return;
         }
+        $scope.registeringClient = true;
+
         RegisterClientResource.register($scope.client).$promise.then(function () {
             $log.info('Submitted registering client');
             $state.go('existing', {apiKey: $scope.client.apiKey});
         }).catch(function () {
             $log.error('An error occurred while registering client');
+        }).finally(function () {
+            $scope.registeringClient = false;
         });
     };
 });
@@ -32,8 +36,23 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
 
     $scope.search = {};
 
-    $scope.submit = function () {
-        $state.go('existing', {apiKey: $scope.search.apiKey}, {reload: true});
+    $scope.searchClient = function () {
+        $scope.searchingClient = true;
+
+        ClientResource.getTransactions({apiKey: $scope.search.apiKey}).$promise.then(function (clients) {
+            $log.info(clients);
+
+            if (angular.equals({}, clients)) {
+                $scope.clients = null;
+            } else {
+                $scope.clients = clients;
+                setTableParams();
+            }
+        }).catch(function (err) {
+            $log.error('An error occurred', err);
+        }).finally(function () {
+            $scope.searchingClient = false;
+        });
     };
 
     $scope.stop = function (randomId) {
@@ -46,25 +65,10 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
     };
 
     var init = function () {
-        if ($stateParams.apiKey !== '') {
+        if ($stateParams.apiKey && $stateParams.apiKey !== '') {
             $scope.search.apiKey =  $stateParams.apiKey;
-            loadClient();
+            $scope.searchClient();
         }
-    };
-
-    var loadClient = function () {
-        ClientResource.getTransactions({apiKey: $scope.search.apiKey}).$promise.then(function (clients) {
-            $log.info(clients);
-
-            if (angular.equals({}, clients)) {
-                $scope.clients = null;
-            } else {
-                $scope.clients = clients;
-                setTableParams();
-            }
-        }).catch(function (err) {
-            $log.error('An error occurred', err);
-        });
     };
 
     var setTableParams = function () {

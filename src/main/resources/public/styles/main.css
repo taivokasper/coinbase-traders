@@ -4,6 +4,9 @@ body {
   background: #fff;
   font-family: 'Raleway', sans-serif; }
 
+*:focus, input:focus {
+  outline: 0 !important; }
+
 h2 {
   margin-bottom: 40px; }
 
