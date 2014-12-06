@@ -1,4 +1,3 @@
-
 describe('Register client controller', function () {
     'use strict';
 
@@ -39,5 +38,25 @@ describe('Register client controller', function () {
 
             expect(clientResources.register.calls.count()).toBe(0);
         });
+    });
+});
+
+describe('Show clients controller', function () {
+    'use strict';
+
+    var $scope, $httpBackend, $state, ctrl;
+
+    beforeEach(module('app', 'templates'));
+
+    beforeEach(inject(function ($rootScope, $controller, _$httpBackend_, _$state_) {
+        $scope = $rootScope.$new();
+        $httpBackend = _$httpBackend_;
+        $state = _$state_;
+
+        ctrl = $controller('ClientCtrl', {$scope: $scope});
+    }));
+
+    it('initializes search as a empty object', function () {
+        expect($scope.search).toEqual({});
     });
 });

@@ -1,11 +1,11 @@
 <div class="center-block col-md-6">
     <h2>Existing clients</h2>
 
-    <form name="client" novalidate>
+    <form name="clientSearchForm" novalidate>
         <div class="form-group required">
             <div class="input-group">
                 <input id="api-key" type="text" class="form-control" name="apiKey"
-                       ng-model="formData.apiKey" ng-required="true" placeholder="ApiKey">
+                       ng-model="search.apiKey" ng-required="true" placeholder="ApiKey">
 
                 <span class="input-group-btn">
                     <button class="btn btn-warning" ng-click="submit()">Find client</button>
