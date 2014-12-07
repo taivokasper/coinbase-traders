@@ -21,7 +21,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 apiKey: {value: ''}
             },
             templateUrl: 'partials/client.html',
-            controller: 'ClientCtrl'
+            controller: 'ClientsCtrl'
         })
         .state('error', {
             url: '^/error',

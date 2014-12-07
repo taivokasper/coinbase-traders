@@ -1,6 +1,8 @@
 <div class="center-block col-md-6">
     <h2>Register a new client</h2>
 
+    <error message="errorMessage"></error>
+
     <form name="newClient" novalidate>
         <div class="form-group required">
           <label for="random-id">Transaction id</label>
@@ -39,20 +41,20 @@
             </label>
 
             <input id="limit" type="text" class="form-control" name="limit" ng-model="client.limit" ng-required="true"
-                   fcsa-number="{ min: 0, maxDecimals: 2, preventInvalidInput: true }">
+                   fcsa-number="{min: 0, maxDecimals: 2, preventInvalidInput: true}">
 
-            <span class="help-inline" ng-show="newClient.limit.$invalid && newClient.limit.$dirty">
+            <div class="validation-msg" ng-show="newClient.limit.$invalid && newClient.limit.$dirty">
                 Limit has to be a number with at most 2 decimal places
-            </span>
+            </div>
         </div>
         <div class="form-group required" ng-class="{'has-error': newClient.amount.$invalid && newClient.amount.$dirty}">
             <label for="amount" ng-if="client.type == 'buy'">Amount in EUR</label>
             <label for="amount" ng-if="client.type == 'sell'">Amount in BTC</label>
 
             <input id="amount" type="text" class="form-control" name="amount" ng-model="client.amount"
-                   ng-required="true" fcsa-number="{ min: 0, maxDecimals: 8, preventInvalidInput: true }">
+                   ng-required="true" fcsa-number="{min: 0, maxDecimals: 8, preventInvalidInput: true}">
 
-            <div ng-show="newClient.amount.$invalid && newClient.amount.$dirty">
+            <div class="validation-msg" ng-show="newClient.amount.$invalid && newClient.amount.$dirty">
                 Amount has to be a number with at most 8 decimal places
             </div>
         </div>

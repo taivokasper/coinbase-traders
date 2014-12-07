@@ -1,4 +1,4 @@
-$tablet: '(max-width: 1000px)';
+$tablet: '1000px';
 
 $orange: #F38630;
 
@@ -8,10 +8,6 @@ body {
   background: #fff;
 
   font-family: 'Raleway', sans-serif;
-}
-
-*:focus, input:focus {
-  outline: 0!important;
 }
 
 h2 {
@@ -34,7 +30,7 @@ header {
   background: $orange;
   text-align: center;
 
-  @media #{$tablet} {
+  @media (max-width: $tablet) {
     height: 150px;
     padding-top: 50px;
   }
@@ -51,7 +47,7 @@ header {
     font-family: 'Pacifico', cursive;
     font-size: 70px;
 
-    @media #{$tablet} {
+    @media (max-width: $tablet) {
       font-size: 40px;
     }
   }
@@ -60,7 +56,7 @@ main {
   width: 1000px;
   margin: 0 auto;
 
-  @media #{$tablet} {
+  @media (max-width: $tablet) {
     width: 90%;
   }
 
@@ -81,6 +77,11 @@ main {
     label {
       display: block;
     }
+    .validation-msg {
+      margin: 10px 0 0 4px;
+      color: #999;
+      font-size: 12px;
+    }
   }
 
   .clients-table {
@@ -97,4 +98,20 @@ main {
   float: none;
   margin-left: auto;
   margin-right: auto;
+}
+.alert {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.has-error .form-control {
+  border-color: #f24a30;
+
+  &:focus {
+    border-color: #f24a30;
+    box-shadow: none;
+  }
 }

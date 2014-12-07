@@ -24,6 +24,7 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
             $log.info('Submitted registering client');
             $state.go('existing', {apiKey: $scope.client.apiKey});
         }).catch(function () {
+            $scope.errorMessage = 'Something went wrong while registering the client';
             $log.error('An error occurred while registering client');
         }).finally(function () {
             $scope.registeringClient = false;
@@ -31,12 +32,12 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
     };
 });
 
-app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTableParams, ClientResource) {
+app.controller('ClientsCtrl', function ($scope, $state, $stateParams, $log, ngTableParams, ClientResource) {
     'use strict';
 
     $scope.search = {};
 
-    $scope.searchClient = function () {
+    $scope.searchClients = function () {
         $scope.searchingClient = true;
 
         ClientResource.getTransactions({apiKey: $scope.search.apiKey}).$promise.then(function (clients) {
@@ -49,6 +50,7 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
                 setTableParams();
             }
         }).catch(function (err) {
+            $scope.errorMessage = 'Something went wrong while searching clients';
             $log.error('An error occurred', err);
         }).finally(function () {
             $scope.searchingClient = false;
@@ -58,8 +60,9 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
     $scope.stop = function (randomId) {
         ClientResource.removeTransaction({randomId: randomId}).$promise.then(function () {
             $log.info('Successfully removed');
-            $state.go('existing', {apiKey: $scope.search.apiKey}, {reload: true});
+            $scope.searchClients();
         }).catch(function (error) {
+            $scope.errorMessage = 'Something went wrong while removing the client';
             $log.error('An error occurred', error);
         });
     };
@@ -67,7 +70,7 @@ app.controller('ClientCtrl', function ($scope, $state, $stateParams, $log, ngTab
     var init = function () {
         if ($stateParams.apiKey && $stateParams.apiKey !== '') {
             $scope.search.apiKey =  $stateParams.apiKey;
-            $scope.searchClient();
+            $scope.searchClients();
         }
     };
 

@@ -15,3 +15,15 @@ app.directive('loading', function () {
 		}
 	};
 });
+
+app.directive('error', function () {
+	'use strict';
+
+	return {
+		restrict: 'E',
+		scope: {
+			message: '=?'
+		},
+		templateUrl: '/partials/directives/error.html'
+	};
+});
