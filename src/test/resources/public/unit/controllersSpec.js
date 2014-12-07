@@ -53,7 +53,7 @@ describe('Show clients controller', function () {
         $httpBackend = _$httpBackend_;
         $state = _$state_;
 
-        ctrl = $controller('ClientCtrl', {$scope: $scope});
+        ctrl = $controller('ClientsCtrl', {$scope: $scope});
     }));
 
     it('initializes search as a empty object', function () {
