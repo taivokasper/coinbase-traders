@@ -3,8 +3,7 @@ CoinbaseTrader
 
 This is the source code for rule based Coinbase trader. 
 
-This webapp is hosted and freely available from [here](http://80.250.122.120:8080/bitcointrader). 
-For now it is hosted on my home [Raspberry Pi](http://www.raspberrypi.org) but if the demand should grow I'll find something better.
+This webapp is hosted and freely available from [here](http://coinbasetraders.com).
 
 ### Documentation
 This application polls Coinbase after every 5 seconds and executes all the transactions that match a given rules.
