@@ -1,11 +1,11 @@
-package com.coinbasetrader.webpage.controller;
+package com.coinbasetraders.controller;
 
 import com.coinbase.api.Coinbase;
-import com.coinbasetrader.webpage.converter.ClientConverter;
-import com.coinbasetrader.webpage.dto.ClientDTO;
-import com.coinbasetrader.webpage.model.Client;
-import com.coinbasetrader.webpage.model.RandomId;
-import com.coinbasetrader.webpage.service.ClientService;
+import com.coinbasetraders.converter.ClientConverter;
+import com.coinbasetraders.dto.ClientDTO;
+import com.coinbasetraders.model.Client;
+import com.coinbasetraders.model.RandomId;
+import com.coinbasetraders.service.ClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

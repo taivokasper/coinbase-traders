@@ -1,4 +1,4 @@
-package com.coinbasetrader.webpage;
+package com.coinbasetraders;
 
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.CoinbaseBuilder;

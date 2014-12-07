@@ -1,10 +1,10 @@
-package com.coinbasetrader.webpage.scheduled;
+package com.coinbasetraders.scheduled;
 
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.exception.CoinbaseException;
-import com.coinbasetrader.webpage.model.Client;
-import com.coinbasetrader.webpage.service.ClientService;
-import com.coinbasetrader.webpage.service.TransactionService;
+import com.coinbasetraders.model.Client;
+import com.coinbasetraders.service.ClientService;
+import com.coinbasetraders.service.TransactionService;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 import org.slf4j.Logger;

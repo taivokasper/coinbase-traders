@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>CoinbaseTraders</title>
+    <title>coinbaseTraders</title>
 
     <!-- bower:css -->
     <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
@@ -16,17 +16,53 @@
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <!-- /include -->
 
-    <link href='http://fonts.googleapis.com/css?family=Raleway|Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway|Quicksand:300,400' rel='stylesheet' type='text/css'>
     <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js" data-apikey="0dfe2c5146836116d5a8d289c43c2885"></script>
 </head>
 
 <body ng-controller="RootCtrl">
     <header>
-        <a ui-sref="front-page">
-            <h1>CoinbaseTraders</h1>
-        </a>
+        <div>
+            <section>
+                <a ui-sref="front-page">
+                    <h1>coinbaseTraders</h1>
+                </a>
+                <h3>
+                    These little Traders automate your Coinbase wallet by selling and buying bitcoins
+                    based on price rules you have set them.
+                </h3>
+            </section>
+            <section class="stats">
+                <div>
+                    <h4>377.51</h4>
+                    <p>coinbase Buy Price</p>
+                </div>
+                <div>
+                    <h4>377.51</h4>
+                    <p>coinbase Sell Price</p>
+                </div>
+                <div>
+                    <h4>2.51</h4>
+                    <p>Since 24 hours ago</p>
+                </div>
+            </section>
+        </div>
+        <div id="traders-image"></div>
     </header>
-    <main ui-view></main>
+    <main>
+        <nav>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn" ui-sref="new" ng-class="{active: isActive('/new')}">
+                    Add new client
+                </button>
+                <button type="button" class="btn" ui-sref="existing" ng-class="{active: isActive('/existing')}">
+                    View/stop client
+                </button>
+            </div>
+        </nav>
+        <section ui-view></section>
+    </main>
+    <footer></footer>
 
     <!-- bower:js -->
     <script src="lib/jquery/dist/jquery.js"></script>

@@ -1,66 +1,100 @@
 body {
   padding-bottom: 60px;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: #F38630;
   font-family: 'Raleway', sans-serif; }
 
-h2 {
-  margin-bottom: 40px; }
+*:focus {
+  outline: none !important; }
 
 a {
-  color: #38d5f4; }
-  a:hover {
-    color: #23527C;
-    text-decoration: none;
-    cursor: pointer; }
+  color: #337ab7;
+  cursor: pointer; }
+
+h1 {
+  margin-bottom: 50px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px; }
+
+h2 {
+  margin-bottom: 40px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px; }
+
+h3 {
+  color: #f2f0ef;
+  font-size: 18px;
+  line-height: 30px; }
+
+h4 {
+  font-size: 35px; }
 
 header {
-  height: 200px;
-  margin-bottom: 40px;
-  padding-top: 60px;
-  background: #F38630;
-  text-align: center; }
-  @media (max-width: 1000px) {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px 0; }
+  @media (max-width: 1100px) {
     header {
-      height: 150px;
-      padding-top: 50px; } }
-  header a {
-    text-decoration: none !important; }
-  header h1 {
-    display: inline;
-    margin: 0;
-    color: #fff;
-    font-family: 'Pacifico', cursive;
-    font-size: 70px; }
-    @media (max-width: 1000px) {
-      header h1 {
-        font-size: 40px; } }
+      width: 90%; } }
+  header a, header a:hover, header a:focus {
+    text-decoration: none; }
+  header > div {
+    float: left;
+    width: 64%;
+    padding-right: 10px; }
+    header > div#traders-image {
+      width: 35%;
+      height: 325px;
+      background: #fff;
+      border-radius: 20px; }
+  header section.stats {
+    width: 100%;
+    padding-top: 20px; }
+    header section.stats div {
+      float: left;
+      margin-right: 40px; }
+      header section.stats div h4 {
+        position: relative;
+        padding-left: 15px; }
+        header section.stats div h4:before {
+          content: '$';
+          position: absolute;
+          font-size: 16px;
+          top: 10px;
+          left: 0; }
 
 main {
-  width: 1000px;
-  margin: 0 auto; }
-  @media (max-width: 1000px) {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center; }
+  @media (max-width: 1100px) {
     main {
       width: 90%; } }
-  main .options {
-    margin-top: 100px;
-    text-align: center; }
-    main .options a {
-      display: block;
-      margin: 20px 0;
-      font-size: 30px; }
-  main form {
-    margin: 0 auto; }
-    main form label {
-      display: block; }
-    main form .validation-msg {
-      margin: 10px 0 0 4px;
-      color: #999;
-      font-size: 12px; }
-  main .clients-table {
-    margin: 30px 0; }
-    main .clients-table div[ng-table-pagination] {
-      display: none; }
+  main nav {
+    margin: 20px 0 50px 0; }
+    main nav .btn {
+      font-size: 22px;
+      background: none;
+      border: 1px solid #fff;
+      box-shadow: none !important; }
+      main nav .btn.active, main nav .btn:hover, main nav .btn:focus {
+        color: #F38630;
+        background: #fff; }
+  main section {
+    margin: 0 auto;
+    text-align: left; }
+    main section form {
+      margin: 0 auto; }
+      main section form label {
+        display: block; }
+      main section form .validation-msg {
+        margin: 10px 0 0 4px;
+        font-size: 12px; }
+    main section.clients-table {
+      margin-top: 30px; }
 
 .center-block {
   float: none;
@@ -76,9 +110,18 @@ main {
   box-shadow: none; }
 
 .has-error .form-control {
+  color: #f24a30;
   border-color: #f24a30; }
   .has-error .form-control:focus {
     border-color: #f24a30;
     box-shadow: none; }
+
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-color: #fff !important; }
+
+div[ng-table-pagination] {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

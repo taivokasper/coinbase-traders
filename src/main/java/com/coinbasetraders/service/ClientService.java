@@ -1,7 +1,7 @@
-package com.coinbasetrader.webpage.service;
+package com.coinbasetraders.service;
 
 import com.coinbase.api.Coinbase;
-import com.coinbasetrader.webpage.model.Client;
+import com.coinbasetraders.model.Client;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

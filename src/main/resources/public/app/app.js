@@ -20,7 +20,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             params: {
                 apiKey: {value: ''}
             },
-            templateUrl: 'partials/client.html',
+            templateUrl: 'partials/clients.html',
             controller: 'ClientsCtrl'
         })
         .state('error', {

@@ -1,4 +1,4 @@
-package com.coinbasetrader.webpage.model;
+package com.coinbasetraders.model;
 
 public class RandomId {
     private String randomId;

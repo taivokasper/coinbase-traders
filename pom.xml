@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.coinbasetrader</groupId>
+    <groupId>com.coinbasetraders</groupId>
     <artifactId>webpage</artifactId>
     <packaging>jar</packaging>
-    <name>coinbasetrader-webpage</name>
+    <name>coinbasetraders</name>
     <version>0.0.1</version>
 
     <developers>

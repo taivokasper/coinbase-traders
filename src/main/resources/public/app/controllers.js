@@ -1,7 +1,13 @@
 /* jshint newcap: false */
 /* globals app */
 
-app.controller('RootCtrl', function ($scope) {});
+app.controller('RootCtrl', function ($scope, $location) {
+    'use strict';
+
+    $scope.isActive = function(path) {
+        return $location.path().substr(0, path.length) === path;
+    };
+});
 
 app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterClientResource, RandomResource) {
     'use strict';

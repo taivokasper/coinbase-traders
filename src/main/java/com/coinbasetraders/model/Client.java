@@ -1,4 +1,4 @@
-package com.coinbasetrader.webpage.model;
+package com.coinbasetraders.model;
 
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.entity.Transfer;

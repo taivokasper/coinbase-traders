@@ -1,10 +1,10 @@
-package com.coinbasetrader.webpage.converter;
+package com.coinbasetraders.converter;
 
 import com.coinbase.api.Coinbase;
 import com.coinbase.api.CoinbaseBuilder;
 import com.coinbase.api.entity.Transfer;
-import com.coinbasetrader.webpage.dto.ClientDTO;
-import com.coinbasetrader.webpage.model.Client;
+import com.coinbasetraders.dto.ClientDTO;
+import com.coinbasetraders.model.Client;
 
 import java.util.Collection;
 import java.util.List;
