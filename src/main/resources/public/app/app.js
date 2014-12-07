@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngResource', 'ui.router', 'ngTable', 'fcsa-number']);
+var app = angular.module('app', ['ngResource', 'ui.router', 'ngTable', 'fcsa-number', 'nsPopover']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     'use strict';

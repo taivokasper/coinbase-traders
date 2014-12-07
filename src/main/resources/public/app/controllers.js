@@ -20,6 +20,10 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
         $scope.client.randomId = random.randomId;
     });
 
+    $scope.setClientType = function (type) {
+        $scope.client.type = type;
+    };
+
     $scope.submit = function () {
         if ($scope.newClient.$invalid) {
             return;

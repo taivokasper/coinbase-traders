@@ -8,6 +8,11 @@ public class Stats {
 
     private BigDecimal sellPrice;
 
+    public Stats(BigDecimal buyPrice, BigDecimal sellPrice) {
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+    }
+
     public BigDecimal getBuyPrice() {
         return buyPrice;
     }

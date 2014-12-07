@@ -8,7 +8,7 @@ body {
   outline: none !important; }
 
 a {
-  color: #337ab7;
+  color: #048bf9;
   cursor: pointer; }
 
 h1 {
@@ -68,6 +68,7 @@ header {
           height: 200px;
           margin-top: 40px; } }
   header stats {
+    display: block;
     width: 100%;
     padding-top: 20px; }
     @media (max-width: 800px) {
@@ -109,16 +110,10 @@ main {
   main nav {
     margin: 20px 0 50px 0; }
     main nav .btn {
-      font-size: 22px;
-      background: none;
-      border: 1px solid #fff;
-      box-shadow: none !important; }
+      font-size: 22px; }
       @media (max-width: 500px) {
         main nav .btn {
           font-size: 16px; } }
-      main nav .btn.active, main nav .btn:hover, main nav .btn:focus {
-        color: #F38630;
-        background: #fff; }
   main section {
     margin: 0 auto;
     text-align: left; }
@@ -129,8 +124,21 @@ main {
       main section form .validation-msg {
         margin: 10px 0 0 4px;
         font-size: 12px; }
+      main section form .client-type {
+        margin: 40px 0;
+        text-align: center; }
+        main section form .client-type .btn {
+          font-size: 18px; }
     main section.clients-table {
       margin-top: 30px; }
+
+.btn-orange {
+  background: none;
+  border: 1px solid #fff;
+  box-shadow: none !important; }
+  .btn-orange.active, .btn-orange:hover, .btn-orange:focus {
+    color: #F38630;
+    background: #fff; }
 
 .center-block {
   float: none;
@@ -159,5 +167,20 @@ main {
 
 div[ng-table-pagination] {
   display: none; }
+
+i[ns-popover] {
+  cursor: pointer; }
+
+.ns-popover-list-theme {
+  color: #666;
+  max-width: 300px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5); }
 
 /*# sourceMappingURL=main.css.map */

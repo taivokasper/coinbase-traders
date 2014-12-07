@@ -22,22 +22,28 @@
             <input id="api-secret" type="text" class="form-control" name="apiSecret"
                    ng-model="client.apiSecret" ng-required="true">
         </div>
-        <div class="form-group required" ng-class="{'has-error': newClient.type.$invalid && newClient.type.$dirty}">
-            <label class="radio-inline">
-                <input type="radio" value="buy" name="type" ng-model="client.type" ng-required="true">
-                Buy
-            </label>
-            <label class="radio-inline">
-                <input type="radio" value="sell" name="type" ng-model="client.type" ng-required="true">
-                Sell
-            </label>
+        <div class="form-group required client-type" ng-class="{'has-error': newClient.type.$invalid && newClient.type.$dirty}">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-orange" ng-click="setClientType('buy')" ng-class="{active: client.type == 'buy'}">
+                    Buy
+                </button>
+                <button type="button" class="btn btn-orange" ng-click="setClientType('sell')" ng-class="{active: client.type == 'sell'}">
+                    Sell
+                </button>
+            </div>
         </div>
         <div class="form-group required" ng-class="{'has-error': newClient.limit.$invalid && newClient.limit.$dirty}">
             <label for="limit" ng-if="client.type == 'buy'">
-                Highest limit in USD. If price goes below this limit then buy
+                Highest limit when not to buy in USD
+
+                <i class="fa fa-question-circle" ns-popover ns-popover-template="limit-popover" ns-popover-placement="top"
+                   ns-popover-trigger="mouseenter" ns-popover-timeout="0.5"></i>
+                <script type="text/ng-template" id="limit-popover">
+                    This is the price limit plapliuplau
+                </script>
             </label>
             <label for="limit" ng-if="client.type == 'sell'">
-                Lowest limit in USD. If prices goes above this then sell
+                Lowest limit when not to sell in USD
             </label>
 
             <input id="limit" type="text" class="form-control" name="limit" ng-model="client.limit" ng-required="true"

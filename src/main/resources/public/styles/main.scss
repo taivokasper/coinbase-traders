@@ -18,7 +18,7 @@ body {
   outline: none!important;
 }
 a {
-  color: #337ab7;
+  color: #048bf9;
   cursor: pointer;
 }
 h1 {
@@ -89,6 +89,7 @@ header {
   }
 
   stats {
+    display: block;
     width: 100%;
     padding-top: 20px;
 
@@ -146,17 +147,9 @@ main {
 
     .btn {
       font-size: 22px;
-      background: none;
-      border: 1px solid #fff;
-      box-shadow: none!important;
 
       @media (max-width: $mobile) {
         font-size: 16px;
-      }
-
-      &.active, &:hover, &:focus {
-        color: $orange;
-        background: #fff;
       }
     }
   }
@@ -174,11 +167,29 @@ main {
         margin: 10px 0 0 4px;
         font-size: 12px;
       }
+      .client-type {
+        margin: 40px 0;
+        text-align: center;
+        .btn {
+          font-size: 18px;
+        }
+      }
     }
 
     &.clients-table {
       margin-top: 30px;
     }
+  }
+}
+
+.btn-orange {
+  background: none;
+  border: 1px solid #fff;
+  box-shadow: none!important;
+
+  &.active, &:hover, &:focus {
+    color: $orange;
+    background: #fff;
   }
 }
 
@@ -215,4 +226,22 @@ main {
 }
 div[ng-table-pagination] {
   display: none;
+}
+
+// Overwrite nsPopover
+i[ns-popover] {
+  cursor: pointer;
+}
+.ns-popover-list-theme {
+  color: #666;
+  max-width: 300px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.5);
 }

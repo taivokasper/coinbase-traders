@@ -13,6 +13,7 @@ module.exports = function (config) {
             'src/main/resources/public/lib/angular/angular.js',
             'src/main/resources/public/lib/angular-*/*.js',
             'src/main/resources/public/lib/ng-*/*.js',
+            'src/main/resources/public/lib/nsPopover/*.js',
             'src/main/resources/public/lib/ui-router/*.js',
 
             'src/main/resources/public/app/**/*.js',

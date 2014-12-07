@@ -28,7 +28,9 @@
                     <h1><span style="font-weight: 300">coinbase</span>Traders</h1>
                 </a>
                 <h3>
-                    These little Traders automate your Coinbase wallet by selling and buying bitcoins
+                    These little Traders automate your
+                    <a href="https://coinbase.com" target="_blank">Coinbase</a>
+                    wallet by selling and buying bitcoins
                     based on price rules you have set them.
                 </h3>
             </section>
@@ -39,10 +41,10 @@
     <main>
         <nav>
             <div class="btn-group" role="group">
-                <button type="button" class="btn" ui-sref="new" ng-class="{active: isActive('/new')}">
+                <button type="button" class="btn btn-orange" ui-sref="new" ng-class="{active: isActive('/new')}">
                     Add new client
                 </button>
-                <button type="button" class="btn" ui-sref="existing" ng-class="{active: isActive('/existing')}">
+                <button type="button" class="btn btn-orange" ui-sref="existing" ng-class="{active: isActive('/existing')}">
                     View/stop client
                 </button>
             </div>
@@ -59,6 +61,7 @@
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="lib/ng-table/ng-table.js"></script>
     <script src="lib/angular-fcsa-number/src/fcsaNumber.js"></script>
+    <script src="lib/nsPopover/src/nsPopover.js"></script>
     <!-- endbower -->
 
     <!-- include: "type": "js", "files": ["app/**/*.js"] -->
