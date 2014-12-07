@@ -3,8 +3,7 @@ CoinbaseTrader
 
 This is the source code for rule based Coinbase trader. 
 
-This webapp is hosted and freely available from [here](http://80.250.122.120:8080/bitcointrader). 
-For now it is hosted on my home [Raspberry Pi](http://www.raspberrypi.org) but if the demand should grow I'll find something better.
+This webapp is hosted and freely available from [here](http://coinbasetraders.com).
 
 ### Documentation
 This application polls Coinbase after every 5 seconds and executes all the transactions that match a given rules.
@@ -13,7 +12,7 @@ If your rule is executed then it is removed and stopped.
 Currently you can add up to 1 rule per API key but that is something that is about to change in the future.
 
 Whenever you feel like it you can always remove your rule 
-by going [here](http://80.250.122.120:8080/bitcointrader/#/existing/) and 
+by going [here](http://coinbasetraders.com/#/existing/) and 
 searching by your api key and pressing the stop button.
 
 Sell rule
