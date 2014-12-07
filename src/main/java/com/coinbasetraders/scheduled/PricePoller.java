@@ -1,6 +1,7 @@
 package com.coinbasetraders.scheduled;
 
 import com.coinbase.api.Coinbase;
+import com.coinbase.api.entity.Quote;
 import com.coinbase.api.exception.CoinbaseException;
 import com.coinbasetraders.model.Client;
 import com.coinbasetraders.service.ClientService;
@@ -47,5 +48,4 @@ public class PricePoller {
             LOG.error("An error occurred", e);
         }
     }
-
 }

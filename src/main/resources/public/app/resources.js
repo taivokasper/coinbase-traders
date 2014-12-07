@@ -27,3 +27,11 @@ app.factory('ClientResource', function ($resource) {
         getTransactions: {method: 'GET', params: {apiKey: ''}, isArray: true}
     });
 });
+
+app.factory('StatsResources', function ($resource) {
+    'use strict';
+
+    return $resource('rest/stats/', {}, {
+        getStats: {method: 'GET'}
+    });
+});

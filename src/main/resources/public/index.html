@@ -16,7 +16,7 @@
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <!-- /include -->
 
-    <link href='http://fonts.googleapis.com/css?family=Raleway|Quicksand:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway|Quicksand:300,400,500' rel='stylesheet' type='text/css'>
     <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js" data-apikey="0dfe2c5146836116d5a8d289c43c2885"></script>
 </head>
 
@@ -25,27 +25,14 @@
         <div>
             <section>
                 <a ui-sref="front-page">
-                    <h1>coinbaseTraders</h1>
+                    <h1><span style="font-weight: 300">coinbase</span>Traders</h1>
                 </a>
                 <h3>
                     These little Traders automate your Coinbase wallet by selling and buying bitcoins
                     based on price rules you have set them.
                 </h3>
             </section>
-            <section class="stats">
-                <div>
-                    <h4>377.51</h4>
-                    <p>coinbase Buy Price</p>
-                </div>
-                <div>
-                    <h4>377.51</h4>
-                    <p>coinbase Sell Price</p>
-                </div>
-                <div>
-                    <h4>2.51</h4>
-                    <p>Since 24 hours ago</p>
-                </div>
-            </section>
+            <stats></stats>
         </div>
         <div id="traders-image"></div>
     </header>

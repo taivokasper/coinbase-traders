@@ -26,6 +26,7 @@ h1 {
   color: #fff;
   font-family: 'Quicksand', sans-serif;
   font-size: 50px;
+  font-weight: 500;
 
   @media (max-width: $big-mobile) {
     font-size: 40px;
@@ -87,43 +88,43 @@ header {
     }
   }
 
-  section {
-    &.stats {
-      width: 100%;
-      padding-top: 20px;
+  stats {
+    width: 100%;
+    padding-top: 20px;
+
+    @media (max-width: $small-tablet) {
+      text-align: center;
+    }
+    @media (max-width: $big-mobile) {
+      display: none;
+    }
+
+    div {
+      float: left;
+      margin-right: 40px;
+      text-align: left;
+
+      &:last-child {
+        margin: 0;
+      }
 
       @media (max-width: $small-tablet) {
-        text-align: center;
-      }
-      @media (max-width: $mobile) {
-        display: none;
+        float: none;
+        display: inline-block;
       }
 
-      div {
-        float: left;
-        margin-right: 40px;
-        text-align: left;
+      h4 {
+        position: relative;
+        height: 36px;
+        padding-left: 15px;
+        font-weight: 600;
 
-        &:last-child {
-          margin: 0;
-        }
-
-        @media (max-width: $small-tablet) {
-          float: none;
-          display: inline-block;
-        }
-
-        h4 {
-          position: relative;
-          padding-left: 15px;
-
-          &:before {
-            content: '$';
-            position: absolute;
-            font-size: 16px;
-            top: 10px;
-            left: 0;
-          }
+        &:before {
+          content: '$';
+          position: absolute;
+          font-size: 16px;
+          top: 10px;
+          left: 0;
         }
       }
     }
