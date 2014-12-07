@@ -12,7 +12,7 @@ If your rule is executed then it is removed and stopped.
 Currently you can add up to 1 rule per API key but that is something that is about to change in the future.
 
 Whenever you feel like it you can always remove your rule 
-by going [here](http://80.250.122.120:8080/bitcointrader/#/existing/) and 
+by going [here](http://coinbasetraders.com/#/existing/) and 
 searching by your api key and pressing the stop button.
 
 Sell rule
