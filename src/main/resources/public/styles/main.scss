@@ -1,0 +1,247 @@
+$tablet: '1100px';
+$small-tablet: '800px';
+$big-mobile: '600px';
+$mobile: '500px';
+
+$orange: #F38630;
+$red: #f24a30;
+
+body {
+  padding-bottom: 60px;
+  color: #fff;
+  background: $orange;
+
+  font-family: 'Raleway', sans-serif;
+}
+
+*:focus {
+  outline: none!important;
+}
+a {
+  color: #048bf9;
+  cursor: pointer;
+}
+h1 {
+  margin-bottom: 50px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+
+  @media (max-width: $big-mobile) {
+    font-size: 40px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 35px;
+  }
+}
+h2 {
+  margin-bottom: 40px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+}
+h3 {
+  color: #f2f0ef;
+  font-size: 18px;
+  line-height: 30px;
+}
+h4 {
+  font-size: 35px;
+}
+
+header {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px 0;
+
+  @media (max-width: $tablet) {
+    width: 90%;
+  }
+
+  a, a:hover, a:focus {
+    text-decoration: none;
+  }
+  & > div {
+    float: left;
+    overflow: hidden;
+    width: 64%;
+    padding-right: 10px;
+
+    @media (max-width: $small-tablet) {
+      float: none;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &#traders-image {
+      width: 35%;
+      height: 325px;
+      background: #fff;
+      border-radius: 20px;
+
+      @media (max-width: $small-tablet) {
+        width: 100%;
+        height: 200px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  stats {
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+
+    @media (max-width: $small-tablet) {
+      text-align: center;
+    }
+    @media (max-width: $big-mobile) {
+      display: none;
+    }
+
+    div {
+      float: left;
+      margin-right: 40px;
+      text-align: left;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      @media (max-width: $small-tablet) {
+        float: none;
+        display: inline-block;
+      }
+
+      h4 {
+        position: relative;
+        height: 36px;
+        padding-left: 15px;
+        font-weight: 600;
+
+        &:before {
+          content: '$';
+          position: absolute;
+          font-size: 16px;
+          top: 10px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+main {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  @media (max-width: $tablet) {
+    width: 90%;
+  }
+
+  nav {
+    margin: 20px 0 50px 0;
+
+    .btn {
+      font-size: 22px;
+
+      @media (max-width: $mobile) {
+        font-size: 16px;
+      }
+    }
+  }
+  section {
+    margin: 0 auto;
+    text-align: left;
+
+    form {
+      margin: 0 auto;
+
+      label {
+        display: block;
+      }
+      .validation-msg {
+        margin: 10px 0 0 4px;
+        font-size: 12px;
+      }
+      .client-type {
+        margin: 40px 0;
+        text-align: center;
+        .btn {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &.clients-table {
+      margin-top: 30px;
+    }
+  }
+}
+
+.btn-orange {
+  background: none;
+  border: 1px solid #fff;
+  box-shadow: none!important;
+
+  &.active, &:hover, &:focus {
+    color: $orange;
+    background: #fff;
+  }
+}
+
+// Overwrite Bootstrap styles
+.center-block {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alert {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.has-error .form-control {
+  color: $red;
+  border-color: $red;
+
+  &:focus {
+    border-color: $red;
+    box-shadow: none;
+  }
+}
+
+// Overwrite ng-table styles
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-color: #fff!important;
+}
+div[ng-table-pagination] {
+  display: none;
+}
+
+// Overwrite nsPopover
+i[ns-popover] {
+  cursor: pointer;
+}
+.ns-popover-list-theme {
+  color: #666;
+  max-width: 300px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+}

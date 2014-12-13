@@ -4,12 +4,10 @@ services: mongodb
 
 before_install:
 - mvn clean
-- npm install
 
 install:
 - mvn install
-
-before_script:
+- npm install
 - grunt build
 
 script:

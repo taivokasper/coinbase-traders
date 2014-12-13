@@ -20,7 +20,9 @@
     "ng-table": "latest",
     "angular-fcsa-number": "~1.5.3",
     "font-awesome": "latest",
-    "nsPopover": "latest"
+    "nsPopover": "latest",
+    "log-it-down": "latest",
+    "bugsnag": "latest"
   },
   "resolutions": {
     "angular": "~1.3.3",
