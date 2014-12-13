@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-cli" : "latest",
     "grunt-contrib-watch": "latest",
     "grunt-wiredep": "latest",
     "grunt-bower-task": "latest",
@@ -14,6 +15,7 @@
     "grunt-karma": "latest",
     "grunt-notify": "latest",
     "grunt-protractor-runner": "latest",
+    "grunt-karma-coveralls": "latest",
     "karma-jasmine": "latest",
     "karma-phantomjs-launcher": "latest",
     "karma-ng-html2js-preprocessor": "latest",
@@ -24,6 +26,7 @@
     "grunt-npm-install": "latest",
     "grunt-contrib-clean": "latest",
     "karma-chrome-launcher": "^0.1.5",
-    "karma-junit-reporter": "latest"
+    "karma-junit-reporter": "latest",
+    "karma-coverage": "latest"
   }
 }

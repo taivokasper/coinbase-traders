@@ -26,12 +26,10 @@ module.exports = function (config) {
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-ng-html2js-preprocessor',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-coverage'
         ],
-        reporters: ['progress', 'junit'],
-        preprocessors: {
-            'src/main/resources/public/**/*.html': ['ng-html2js']
-        },
+        reporters: ['progress', 'junit', 'coverage'],
         ngHtml2JsPreprocessor: {
             stripPrefix: 'src/main/resources/public/',
             moduleName: 'templates'
@@ -39,7 +37,14 @@ module.exports = function (config) {
         junitReporter: {
             outputFile: 'logs/karma-test-results.xml'
         },
-
+        coverageReporter: {
+            type: 'lcov',
+            dir: 'log/coverage/'
+        },
+        preprocessors: {
+            'src/main/resources/public/**/*.html': 'ng-html2js',
+            'src/main/resources/public/app/**/*.js': 'coverage'
+        },
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,

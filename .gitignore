@@ -7,3 +7,4 @@ node_modules
 src/main/resources/public/lib
 src/main/resources/public/styles/*.css.map
 src/main/resources/public/styles/*.css
+log
