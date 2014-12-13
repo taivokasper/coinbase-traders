@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StatsService {
-
     private Stats stats;
 
     public Stats getStats() {

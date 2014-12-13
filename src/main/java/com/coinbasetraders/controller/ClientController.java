@@ -28,8 +28,7 @@ public class ClientController {
     public void registerTransaction(@RequestBody ClientDTO clientDTO) {
         LOG.info("Registering a new client: " + clientDTO.toString());
 
-        Coinbase coinbase = clientService.getCoinbaseByApiKey(clientDTO.getApiKey());
-        clientService.registerNewClient(ClientConverter.dtoToModel(clientDTO, coinbase));
+        clientService.registerNewClient(ClientConverter.dtoToModel(clientDTO));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{apiKey}")

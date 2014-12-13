@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 public class Stats {
 
     private BigDecimal buyPrice;
-
     private BigDecimal sellPrice;
 
     public Stats(BigDecimal buyPrice, BigDecimal sellPrice) {

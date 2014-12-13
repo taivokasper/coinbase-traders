@@ -13,6 +13,10 @@
             <name>Taivo Käsper</name>
             <email>taivo.kasper@gmail.com</email>
         </developer>
+        <developer>
+            <name>Uku Pattak</name>
+            <email>ukupat@gmail.com</email>
+        </developer>
     </developers>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -41,6 +45,10 @@
             <artifactId>json-path-assert</artifactId>
             <version>0.9.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>com.coinbase.api</groupId>

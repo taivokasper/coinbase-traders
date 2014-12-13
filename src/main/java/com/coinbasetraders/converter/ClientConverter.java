@@ -15,13 +15,7 @@ import static com.coinbase.api.entity.Transfer.Type.SELL;
 
 public class ClientConverter {
 
-    public static Client dtoToModel(ClientDTO clientDTO, Coinbase coinbase) {
-        if (coinbase == null) {
-            coinbase = new CoinbaseBuilder()
-                    .withApiKey(clientDTO.getApiKey(), clientDTO.getApiSecret())
-                    .build();
-        }
-
+    public static Client dtoToModel(ClientDTO clientDTO) {
         String type = clientDTO.getType();
         Transfer.Type typeEnum;
         switch (type) {
@@ -34,7 +28,7 @@ public class ClientConverter {
             default:
                 throw new RuntimeException("Not supported transaction type");
         }
-        return new Client(coinbase, clientDTO.getRandomId(), clientDTO.getApiKey(), clientDTO.getLimit(), clientDTO.getAmount(), typeEnum);
+        return new Client(clientDTO.getRandomId(), clientDTO.getApiKey(), clientDTO.getApiSecret(), clientDTO.getLimit(), clientDTO.getAmount(), typeEnum);
     }
 
     public static ClientDTO modelToDto(Client client) {

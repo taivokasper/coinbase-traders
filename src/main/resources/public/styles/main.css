@@ -8,8 +8,10 @@ body {
   outline: none !important; }
 
 a {
-  color: #048bf9;
+  color: #000;
   cursor: pointer; }
+  a:focus, a:hover {
+    color: #286090; }
 
 h1 {
   margin-bottom: 50px;
@@ -74,9 +76,6 @@ header {
     @media (max-width: 800px) {
       header stats {
         text-align: center; } }
-    @media (max-width: 600px) {
-      header stats {
-        display: none; } }
     header stats div {
       float: left;
       margin-right: 40px;
@@ -131,6 +130,10 @@ main {
           font-size: 18px; }
     main section.clients-table {
       margin-top: 30px; }
+      main section.clients-table table thead tr th:first-child {
+        width: 50%; }
+      main section.clients-table table tbody tr td {
+        text-align: center; }
 
 .btn-orange {
   background: none;

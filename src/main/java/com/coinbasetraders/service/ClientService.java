@@ -1,64 +1,67 @@
 package com.coinbasetraders.service;
 
-import com.coinbase.api.Coinbase;
 import com.coinbasetraders.model.Client;
+import com.coinbasetraders.repository.ClientRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static com.coinbase.api.entity.Transfer.Type.BUY;
 import static com.coinbase.api.entity.Transfer.Type.SELL;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class ClientService {
+    private final Logger log = LoggerFactory.getLogger(ClientService.class);
 
-    private List<Client> registeredClients = new ArrayList<>();
+    @Autowired
+    private ClientRepository repository;
+
+    private List<Client> registeredClients;
 
     public List<Client> getClientsWhoMatch(BigDecimal currentPrice) {
-        return registeredClients.stream()
-                .filter((i) ->
-                        SELL.equals(i.getType()) && currentPrice.compareTo(i.getLimit()) >= 0 ||
+        return getClients().stream()
+                .filter(i ->
+                    SELL.equals(i.getType()) && currentPrice.compareTo(i.getLimit()) >= 0 ||
                         BUY.equals(i.getType()) && currentPrice.compareTo(i.getLimit()) <= 0)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     public List<Client> getByApiKey(String apiKey) {
-        return registeredClients.stream()
+        return getClients().stream()
                 .filter(clientI -> clientI.getApiKey().equals(apiKey))
-                .collect(Collectors.toList());
-    }
-
-    public Coinbase getCoinbaseByApiKey(String apiKey) {
-        List<Client> byApiKey = getByApiKey(apiKey);
-        if (byApiKey.isEmpty()) {
-            return null;
-        }
-
-        Optional<Client> first = byApiKey.stream().filter(clientI -> clientI.getCoinbase() != null).findFirst();
-        if (first.isPresent()) {
-            return first.get().getCoinbase();
-        }
-        removeByApiKey(apiKey);
-        return null;
+                .collect(toList());
     }
 
     public void registerNewClient(Client client) {
-        registeredClients.add(client);
+        repository.save(client);
+        getClients().add(client);
     }
 
     public void removeByRandomId(String random) {
-        registeredClients.removeIf(i -> random.equals(i.getRandomId()));
+        repository.deleteByRandomId(random);
+        getClients().removeIf(i -> random.equals(i.getRandomId()));
     }
 
     public void removeByApiKey(String apiKey) {
-        registeredClients.removeIf(i -> i.getApiKey().equals(apiKey));
+        repository.deleteByApiKey(apiKey);
+        getClients().removeIf(i -> i.getApiKey().equals(apiKey));
     }
 
     public Long getNumberOfRegisteredTransactions() {
-        return (long) registeredClients.size();
+        return (long) getClients().size();
+    }
+
+    private List<Client> getClients() {
+        if (registeredClients == null) {
+            log.debug("No registered clients. Looking from database.");
+            registeredClients = repository.findAll();
+            log.debug("Found " + registeredClients.size() + " registered clients from database");
+        }
+        return registeredClients;
     }
 }

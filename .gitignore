@@ -5,3 +5,5 @@ src/main/resources/static/js/libs
 logs
 node_modules
 src/main/resources/public/lib
+src/main/resources/public/styles/main.css.map
+src/main/resources/public/styles/main.scss
