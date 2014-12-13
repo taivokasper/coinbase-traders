@@ -34,11 +34,19 @@ app.directive('stats', function () {
     return {
         restrict: 'E',
         templateUrl: '/partials/directives/stats.html',
-        controller: function ($scope, StatsResources) {
+        controller: function ($scope, StatsResources, $interval) {
+            $scope.stats = {
+                sellPrice: '--',
+                buyPrice: '--'
+            };
 
-            StatsResources.getStats().$promise.then(function (stats) {
-                $scope.stats = stats;
-            });
+            var getStats = function () {
+                StatsResources.getStats().$promise.then(function (stats) {
+                    $scope.stats = stats;
+                });
+            };
+            getStats();
+            $interval(getStats, 1000);
         }
     };
 });
