@@ -101,7 +101,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['clean', 'npm-install', 'bower', 'wiredep', 'includeSource', 'karma', 'watch']);
     grunt.registerTask('build', ['clean', 'npm-install', 'bower', 'wiredep', 'sass', 'includeSource']);
 
-    grunt.registerTask('test', ['clean', 'karma', 'protractor']);
+    grunt.registerTask('test', ['clean', 'karma']);
     grunt.registerTask('test:unit', ['clean', 'karma']);
     grunt.registerTask('test:e2e', ['clean', 'protractor']);
 };
