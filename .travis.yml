@@ -8,11 +8,11 @@ before_install:
 install:
 - mvn install
 - npm install
-- grunt build
+- npm run-script build
 
 script:
 - mvn test
-- grunt test
+- npm test
 
 after_success:
 - echo 'DEPLOY TODO'
