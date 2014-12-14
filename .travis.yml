@@ -6,14 +6,14 @@ before_install:
 - mvn clean
 
 install:
-- mvn install
 - npm install
 - npm run-script build
+- mvn install
 
 script:
 - mvn test
 - npm test
 
 after_success:
-- scp target/webpage-0.0.1.jar root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
+- yes | scp target/webpage-0.0.1.jar root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
 - ssh root@5.231.53.194 "cd /root/CoinbaseTraders && ./restart_production.sh"
