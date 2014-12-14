@@ -1,0 +1,194 @@
+body {
+  padding-bottom: 60px;
+  color: #fff;
+  background: #F38630;
+  font-family: 'Raleway', sans-serif; }
+
+*:focus {
+  outline: none !important; }
+
+a {
+  color: #383939;
+  cursor: pointer; }
+  a:hover, a:focus {
+    color: #000; }
+
+h1 {
+  margin-bottom: 50px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  font-weight: 500; }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 40px; } }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 35px; } }
+
+h2 {
+  margin-bottom: 40px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px; }
+
+h3 {
+  color: #f2f0ef;
+  font-size: 18px;
+  line-height: 30px; }
+
+h4 {
+  font-size: 35px; }
+
+header {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px 0; }
+  @media (max-width: 1100px) {
+    header {
+      width: 90%; } }
+  header a, header a:hover, header a:focus {
+    text-decoration: none; }
+  header > div {
+    float: left;
+    overflow: hidden;
+    width: 64%;
+    padding-right: 10px; }
+    @media (max-width: 800px) {
+      header > div {
+        float: none;
+        width: 100%;
+        margin: 0 auto; } }
+    header > div#traders-image {
+      width: 35%;
+      height: 325px;
+      background: #fff;
+      border-radius: 20px; }
+      @media (max-width: 800px) {
+        header > div#traders-image {
+          width: 100%;
+          height: 200px;
+          margin-top: 40px; } }
+  header stats {
+    display: block;
+    width: 100%;
+    padding-top: 20px; }
+    @media (max-width: 800px) {
+      header stats {
+        text-align: center; } }
+    header stats div {
+      float: left;
+      margin-right: 40px;
+      text-align: left; }
+      header stats div:last-child {
+        margin: 0; }
+      @media (max-width: 800px) {
+        header stats div {
+          float: none;
+          display: inline-block; } }
+      header stats div h4 {
+        position: relative;
+        height: 36px;
+        padding-left: 15px;
+        font-weight: 600; }
+        header stats div h4:before {
+          content: '$';
+          position: absolute;
+          font-size: 16px;
+          top: 10px;
+          left: 0; }
+
+main {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center; }
+  @media (max-width: 1100px) {
+    main {
+      width: 90%; } }
+  main nav {
+    margin: 20px 0 50px 0; }
+    main nav .btn {
+      font-size: 22px; }
+      @media (max-width: 500px) {
+        main nav .btn {
+          font-size: 16px; } }
+  main section {
+    margin: 0 auto;
+    text-align: left; }
+    main section form {
+      margin: 0 auto; }
+      main section form label {
+        display: block; }
+      main section form .validation-msg {
+        margin: 10px 0 0 4px;
+        font-size: 12px; }
+      main section form .client-type {
+        margin: 40px 0;
+        text-align: center; }
+        main section form .client-type .btn {
+          font-size: 18px; }
+    main section.clients-table {
+      margin-top: 30px; }
+      main section.clients-table thead tr th:first-child {
+        width: 50%; }
+      main section.clients-table tbody tr td {
+        text-align: center; }
+
+.btn-orange {
+  background: none;
+  border: 1px solid #fff;
+  box-shadow: none !important; }
+  .btn-orange.active, .btn-orange:hover, .btn-orange:focus {
+    color: #F38630;
+    background: #fff; }
+
+.center-block {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
+
+.alert {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.has-error .form-control {
+  color: #f24a30;
+  border-color: #f24a30; }
+  .has-error .form-control:focus {
+    border-color: #f24a30;
+    box-shadow: none; }
+
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-color: #fff !important; }
+
+div[ng-table-pagination] {
+  display: none; }
+
+i[ns-popover] {
+  cursor: pointer; }
+
+.ns-popover-list-theme {
+  color: #666;
+  max-width: 300px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.3); }
+  .ns-popover-list-theme a {
+    color: #F38630; }
+  .ns-popover-list-theme b {
+    color: #000;
+    font-weight: 600; }
+
+/*# sourceMappingURL=main.css.map */

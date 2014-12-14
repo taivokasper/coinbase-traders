@@ -22,20 +22,6 @@ module.exports = function (grunt) {
             }
         },
 
-        sass: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= conf.appDir %>/styles/',
-                    src: ['sass/*.scss'],
-                    dest: '<%= conf.appDir %>/styles/',
-                    flatten: true,
-                    ext: '.css',
-                    update: true
-                }]
-            }
-        },
-
         wiredep: {
            app: {
                src: ['<%= conf.appDir %>/index.html'],
@@ -96,10 +82,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-npm-install');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('default', ['clean', 'npm-install', 'bower', 'wiredep', 'includeSource', 'karma', 'watch']);
-    grunt.registerTask('build', ['clean', 'npm-install', 'bower', 'wiredep', 'sass', 'includeSource']);
+    grunt.registerTask('build', ['clean', 'npm-install', 'bower', 'wiredep', 'includeSource']);
 
     grunt.registerTask('test', ['clean', 'karma']);
     grunt.registerTask('test:unit', ['clean', 'karma']);

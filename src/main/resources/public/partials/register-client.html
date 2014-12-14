@@ -4,20 +4,30 @@
     <error message="errorMessage"></error>
 
     <form name="newClient" novalidate>
-        <div class="form-group required">
-          <label for="random-id">Transaction id</label>
-
-          <input id="random-id" type="text" class="form-control" name="randomId"
-                 ng-model="client.randomId" ng-required="true" ng-readonly="true">
-        </div>
         <div class="form-group required" ng-class="{'has-error': newClient.apiKey.$invalid && newClient.apiKey.$dirty}">
-            <label for="api-key">ApiKey</label>
+            <label for="api-key">
+                API key
+
+                <popover-icon for="api-key"></popover-icon>
+                <script id="api-key-popover" type="text/ng-template">
+                    We need your Coinbase account API key for making transactions.
+                    Generate your key with <b>buy</b> and <b>sell permissions</b> from <a href="https://www.coinbase.com/settings/api">here</a>.<br>
+                    More info about <a href="https://www.coinbase.com/docs/api/authentication">Coinbase API keys</a>.
+                </script>
+            </label>
 
             <input id="api-key" type="text" class="form-control" name="apiKey"
                    ng-model="client.apiKey" ng-required="true">
         </div>
         <div class="form-group required" ng-class="{'has-error': newClient.apiSecret.$invalid && newClient.apiSecret.$dirty}">
-            <label for="api-secret">ApiSecret</label>
+            <label for="api-secret">
+                API secret
+
+                <popover-icon for="api-secret"></popover-icon>
+                <script id="api-secret-popover" type="text/ng-template">
+                    Generated API key Secret
+                </script>
+            </label>
 
             <input id="api-secret" type="text" class="form-control" name="apiSecret"
                    ng-model="client.apiSecret" ng-required="true">
@@ -34,16 +44,20 @@
         </div>
         <div class="form-group required" ng-class="{'has-error': newClient.limit.$invalid && newClient.limit.$dirty}">
             <label for="limit" ng-if="client.type == 'buy'">
-                Highest limit when not to buy in USD
+                Buy price in USD
 
-                <i class="fa fa-question-circle" ns-popover ns-popover-template="limit-popover" ns-popover-placement="top"
-                   ns-popover-trigger="mouseenter" ns-popover-timeout="0.5"></i>
-                <script type="text/ng-template" id="limit-popover">
-                    This is the price limit plapliuplau
+                <popover-icon for="buy-price"></popover-icon>
+                <script id="buy-price-popover" type="text/ng-template">
+                    TODO
                 </script>
             </label>
             <label for="limit" ng-if="client.type == 'sell'">
-                Lowest limit when not to sell in USD
+                Sell price in USD
+
+                <popover-icon for="sell-price"></popover-icon>
+                <script id="sell-price-popover" type="text/ng-template">
+                    TODO
+                </script>
             </label>
 
             <input id="limit" type="text" class="form-control" name="limit" ng-model="client.limit" ng-required="true"

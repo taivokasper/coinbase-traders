@@ -251,7 +251,15 @@ i[ns-popover] {
   border: 1px solid #eee;
   border-radius: 3px;
 
-  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow:    2px 2px 1px 0px rgba(50, 50, 50, 0.5);
-  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.5);
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    2px 2px 1px 0px rgba(50, 50, 50, 0.3);
+  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.3);
+
+  a {
+    color: $orange;
+  }
+  b {
+    color: #000;
+    font-weight: 600;
+  }
 }

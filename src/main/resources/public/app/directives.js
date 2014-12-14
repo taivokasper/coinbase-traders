@@ -6,7 +6,7 @@ app.directive('loading', function () {
     return {
         restrict: 'A',
         scope: {
-            loading: '=loading'
+            loading: '='
         },
         transclude: true,
         templateUrl: '/partials/directives/loading.html',
@@ -48,5 +48,18 @@ app.directive('stats', function () {
             getStats();
             $interval(getStats, 1000);
         }
+    };
+});
+
+app.directive('popoverIcon', function () {
+    'use strict';
+
+    return {
+        restrict: 'E',
+        transclude: true,
+        scope: {
+            for: '@'
+        },
+        templateUrl: '/partials/directives/popover-icon.html'
     };
 });
