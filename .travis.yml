@@ -2,8 +2,12 @@ language: java
 jdk: oraclejdk8
 services: mongodb
 
+virtualenv:
+  system_site_packages: true
+
 before_install:
 - mvn clean
+- sudo apt-get install -qq sshpass
 
 install:
 - npm install
