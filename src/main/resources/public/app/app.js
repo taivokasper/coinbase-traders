@@ -3,12 +3,13 @@ var app = angular.module('app', ['ngResource', 'ui.router', 'ngTable', 'fcsa-num
 app.config(function ($stateProvider, $urlRouterProvider) {
     'use strict';
 
+    $urlRouterProvider.when('/', '/about');
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state('front-page', {
-            url: '/',
-            templateUrl: 'partials/front-page.html'
+        .state('about', {
+            url: '/about',
+            templateUrl: 'partials/about-page.html'
         })
         .state('new', {
             url: '/new',

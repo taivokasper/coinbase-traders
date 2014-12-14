@@ -5,6 +5,7 @@ $mobile: '500px';
 
 $orange: #F38630;
 $red: #f24a30;
+$black: #383939;
 
 body {
   padding-bottom: 60px;
@@ -18,8 +19,12 @@ body {
   outline: none!important;
 }
 a {
-  color: #048bf9;
+  color: $black;
   cursor: pointer;
+
+  &:hover, &:focus {
+    color: #000;
+  }
 }
 h1 {
   margin-bottom: 50px;
@@ -95,9 +100,6 @@ header {
 
     @media (max-width: $small-tablet) {
       text-align: center;
-    }
-    @media (max-width: $big-mobile) {
-      display: none;
     }
 
     div {
@@ -178,6 +180,14 @@ main {
 
     &.clients-table {
       margin-top: 30px;
+
+      thead tr th:first-child {
+        width: 50%;
+      }
+
+      tbody tr td {
+        text-align: center;
+      }
     }
   }
 }
