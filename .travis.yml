@@ -15,5 +15,5 @@ script:
 - npm test
 
 after_success:
-- (echo ${SERVER_PASSWORD}) | scp -o "StrictHostKeyChecking no" target/webpage-0.0.1.jar root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
-- (echo ${SERVER_PASSWORD}) | ssh -o "StrictHostKeyChecking no" root@5.231.53.194 "cd /root/CoinbaseTraders && ./restart_production.sh"
+- sshpass -p ${SERVER_PASSWORD} scp -o "StrictHostKeyChecking no" target/webpage-0.0.1.jar root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
+- sshpass -p ${SERVER_PASSWORD} ssh -o "StrictHostKeyChecking no" root@5.231.53.194 "cd /root/CoinbaseTraders && ./restart_production.sh"
