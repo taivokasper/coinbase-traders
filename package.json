@@ -14,7 +14,6 @@
     "grunt-karma": "latest",
     "grunt-notify": "latest",
     "grunt-protractor-runner": "latest",
-    "grunt-karma-coveralls": "latest",
     "karma-jasmine": "latest",
     "karma-phantomjs-launcher": "latest",
     "karma-ng-html2js-preprocessor": "latest",

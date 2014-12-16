@@ -1,5 +1,3 @@
-/* global module */
-
 var conf = {
     appDir: 'src/main/resources/public',
     testDir: 'src/test/resources/public'

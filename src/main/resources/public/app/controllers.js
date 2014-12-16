@@ -1,5 +1,5 @@
 /* jshint newcap: false */
-/* globals app */
+/* global app */
 
 app.controller('RootCtrl', function ($scope, $location) {
     'use strict';
@@ -26,6 +26,7 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
 
     $scope.submit = function () {
         if ($scope.newClient.$invalid) {
+            $log.warn('Form is invalid');
             return;
         }
         $scope.registeringClient = true;
@@ -33,9 +34,9 @@ app.controller('RegisterClientCtrl', function ($scope, $state, $log, RegisterCli
         RegisterClientResource.register($scope.client).$promise.then(function () {
             $log.info('Submitted registering client');
             $state.go('existing', {apiKey: $scope.client.apiKey});
-        }).catch(function () {
+        }).catch(function (error) {
+            $log.error('An error occurred while registering client', error);
             $scope.errorMessage = 'Something went wrong while registering the client';
-            $log.error('An error occurred while registering client');
         }).finally(function () {
             $scope.registeringClient = false;
         });
@@ -48,17 +49,16 @@ app.controller('ClientsCtrl', function ($scope, $state, $stateParams, $log, ngTa
     $scope.search = {};
 
     $scope.searchClients = function () {
+        if (!$scope.search.apiKey) {
+            $scope.clients = [];
+            return;
+        }
         $scope.searchingClient = true;
 
         ClientResource.getTransactions({apiKey: $scope.search.apiKey}).$promise.then(function (clients) {
             $log.info(clients);
-
-            if (angular.equals({}, clients)) {
-                $scope.clients = null;
-            } else {
-                $scope.clients = clients;
-                setTableParams();
-            }
+            $scope.clients = clients;
+            setTableParams();
         }).catch(function (err) {
             $scope.errorMessage = 'Something went wrong while searching clients';
             $log.error('An error occurred', err);

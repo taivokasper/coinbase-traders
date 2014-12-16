@@ -48,7 +48,7 @@
 
                 <popover-icon for="buy-price"></popover-icon>
                 <script id="buy-price-popover" type="text/ng-template">
-                    TODO
+                    Price in US dollars when Traders can buy you a Bitcoins
                 </script>
             </label>
             <label for="limit" ng-if="client.type == 'sell'">
@@ -56,7 +56,7 @@
 
                 <popover-icon for="sell-price"></popover-icon>
                 <script id="sell-price-popover" type="text/ng-template">
-                    TODO
+                    Price in US dollars when Traders can sell your Bitcoins
                 </script>
             </label>
 
@@ -64,12 +64,26 @@
                    fcsa-number="{min: 0, maxDecimals: 2, preventInvalidInput: true}">
 
             <div class="validation-msg" ng-show="newClient.limit.$invalid && newClient.limit.$dirty">
-                Limit has to be a number with at most 2 decimal places
+                Price has to be a number with at most 2 decimal places
             </div>
         </div>
         <div class="form-group required" ng-class="{'has-error': newClient.amount.$invalid && newClient.amount.$dirty}">
-            <label for="amount" ng-if="client.type == 'buy'">Amount in EUR</label>
-            <label for="amount" ng-if="client.type == 'sell'">Amount in BTC</label>
+            <label for="amount" ng-if="client.type == 'buy'">
+                Amount in EUR
+
+                <popover-icon for="buy-amount"></popover-icon>
+                <script id="buy-amount-popover" type="text/ng-template">
+                    Amount that Traders are going to Buy
+                </script>
+            </label>
+            <label for="amount" ng-if="client.type == 'sell'">
+                Amount in BTC
+
+                <popover-icon for="sell-amount"></popover-icon>
+                <script id="sell-amount-popover" type="text/ng-template">
+                    Amount that Traders are going to Sell
+                </script>
+            </label>
 
             <input id="amount" type="text" class="form-control" name="amount" ng-model="client.amount"
                    ng-required="true" fcsa-number="{min: 0, maxDecimals: 8, preventInvalidInput: true}">
@@ -79,8 +93,7 @@
             </div>
         </div>
 
-        <button class="btn btn-primary" ng-click="submit()" loading="registeringClient"
-                ng-disabled="newClient.$invalid || registeringClient">
+        <button class="btn btn-primary" ng-click="submit()" loading="registeringClient" ng-disabled="newClient.$invalid || registeringClient">
             Add new
         </button>
     </form>

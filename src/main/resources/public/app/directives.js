@@ -9,7 +9,7 @@ app.directive('loading', function () {
             loading: '='
         },
         transclude: true,
-        templateUrl: '/partials/directives/loading.html',
+        templateUrl: 'partials/directives/loading.html',
         link: function (scope, elem) {
             elem.css('min-width', elem.css('width'));
         }
@@ -24,7 +24,7 @@ app.directive('error', function () {
         scope: {
             message: '=?'
         },
-        templateUrl: '/partials/directives/error.html'
+        templateUrl: 'partials/directives/error.html'
     };
 });
 
@@ -33,8 +33,9 @@ app.directive('stats', function () {
 
     return {
         restrict: 'E',
-        templateUrl: '/partials/directives/stats.html',
-        controller: function ($scope, StatsResources, $interval) {
+        templateUrl: 'partials/directives/stats.html',
+        controller: function ($scope, $log, StatsResources, $interval) {
+
             $scope.stats = {
                 sellPrice: '--',
                 buyPrice: '--'
@@ -43,6 +44,8 @@ app.directive('stats', function () {
             var getStats = function () {
                 StatsResources.getStats().$promise.then(function (stats) {
                     $scope.stats = stats;
+                }).catch(function (error) {
+                    $log.error('Something is wrong with stats request', error);
                 });
             };
             getStats();

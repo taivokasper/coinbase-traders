@@ -255,6 +255,8 @@ i[ns-popover] {
   -moz-box-shadow:    2px 2px 1px 0px rgba(50, 50, 50, 0.3);
   box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.3);
 
+  z-index: 100;
+
   a {
     color: $orange;
   }
