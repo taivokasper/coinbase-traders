@@ -6,7 +6,6 @@ app.factory('$exceptionHandler', function ($log, $injector, $window, logCollecto
     var Bugsnag = $window.Bugsnag;
     Bugsnag.apiKey = '0dfe2c5146836116d5a8d289c43c2885';
 
-
     var notifyBugsnag = function (exception) {
         Bugsnag.releaseStage = getBugsnagStage();
         Bugsnag.metaData = getBugsnagMetaData();

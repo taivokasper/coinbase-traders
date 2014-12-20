@@ -2,6 +2,10 @@ language: java
 jdk: oraclejdk8
 services: mongodb
 
+addons:
+  code_climate:
+    repo_token: "eagbCytbejzElpQAVpAkyt4aE0QsQ85vMFD7ZXOV+VMaqF4EBVW0swpAEc5u8/oQc39tHx1DyrHG5+AXQ3ThCvo4emutBp4Vg2OvNfwk7gLcxCFm7RCfl9FIYBqALKTKBjD7DPDC4qg3gmpSZWSS4Moj4PBOyycKRzpCArv5aes="
+
 virtualenv:
   system_site_packages: true
 
@@ -21,3 +25,6 @@ script:
 after_success:
 - sshpass -p ${SERVER_PASSWORD} scp -o "StrictHostKeyChecking no" target/webpage-0.0.1.jar root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
 - sshpass -p ${SERVER_PASSWORD} ssh -o "StrictHostKeyChecking no" root@5.231.53.194 "cd /root/CoinbaseTraders && ./restart_production.sh"
+
+after_script:
+  - cat logs/coverage/lcov.info | codeclimate

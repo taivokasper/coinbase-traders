@@ -36,7 +36,8 @@ module.exports = function (config) {
         },
         coverageReporter: {
             type: 'lcov',
-            dir: 'logs/coverage/'
+            dir: 'logs/coverage/',
+            subdir: '.'
         },
         preprocessors: {
             'src/main/resources/public/**/*.html': 'ng-html2js',
