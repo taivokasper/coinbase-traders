@@ -40,18 +40,6 @@ public class ClientServiceTest {
         testClient = new Client("1234", "API_KEY", "", BigDecimal.ONE, BigDecimal.TEN, SELL);
     }
 
-    private Client[] getSellTestClients() {
-        Client[] clients = {
-                new Client("10", "API_KEY", "", BigDecimal.TEN, BigDecimal.valueOf(0.00000001), SELL),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), SELL),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), SELL),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.53), BigDecimal.valueOf(0.10000000), SELL),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.55), BigDecimal.valueOf(0.10000), SELL)
-        };
-        Arrays.stream(clients).forEach(clientService::registerNewClient);
-        return clients;
-    }
-
     @Test
     public void testGetClientsWhoMatchWhenSelling() throws Exception {
         Client[] sellTests = getSellTestClients();
@@ -69,14 +57,13 @@ public class ClientServiceTest {
         assertThat(match, hasSize(4));
     }
 
-
-    private Client[] getBuyTestClients() {
+    private Client[] getSellTestClients() {
         Client[] clients = {
-                new Client("10", "API_KEY", "", BigDecimal.TEN, BigDecimal.valueOf(0.00000001), BUY),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), BUY),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), BUY),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.53), BigDecimal.valueOf(0.10000000), BUY),
-                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.55), BigDecimal.valueOf(0.10000), BUY)
+                new Client("10", "API_KEY", "", BigDecimal.TEN, BigDecimal.valueOf(0.00000001), SELL),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), SELL),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), SELL),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.53), BigDecimal.valueOf(0.10000000), SELL),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.55), BigDecimal.valueOf(0.10000), SELL)
         };
         Arrays.stream(clients).forEach(clientService::registerNewClient);
         return clients;
@@ -97,6 +84,18 @@ public class ClientServiceTest {
         match = clientService.getClientsWhoMatch(BigDecimal.valueOf(11.53));
         assertThat(match, hasItems(buyTests[3], buyTests[4]));
         assertThat(match, hasSize(2));
+    }
+
+    private Client[] getBuyTestClients() {
+        Client[] clients = {
+                new Client("10", "API_KEY", "", BigDecimal.TEN, BigDecimal.valueOf(0.00000001), BUY),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), BUY),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11), BigDecimal.valueOf(0.10000001), BUY),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.53), BigDecimal.valueOf(0.10000000), BUY),
+                new Client("11", "API_KEY", "", BigDecimal.valueOf(11.55), BigDecimal.valueOf(0.10000), BUY)
+        };
+        Arrays.stream(clients).forEach(clientService::registerNewClient);
+        return clients;
     }
 
     @Test
