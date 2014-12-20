@@ -27,4 +27,4 @@ after_success:
 - sshpass -p ${SERVER_PASSWORD} ssh -o "StrictHostKeyChecking no" root@5.231.53.194 "cd /root/CoinbaseTraders && ./restart_production.sh"
 
 after_script:
-  - cat logs/coverage/lcov.info | codeclimate
+  - cat logs/coverage/lcov.info | npm run-script analyse
