@@ -1,5 +1,6 @@
 package com.coinbasetraders.service;
 
+import com.coinbasetraders.exception.DuplicatedTransactionException;
 import com.coinbasetraders.model.Client;
 import com.coinbasetraders.repository.ClientRepository;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import java.util.List;
 import static com.coinbase.api.entity.Transfer.Type.BUY;
 import static com.coinbase.api.entity.Transfer.Type.SELL;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang.StringUtils.isEmpty;
 
 @Service
 public class ClientService {
@@ -38,18 +40,22 @@ public class ClientService {
     }
 
     public void registerNewClient(Client client) {
+        if (client == null) {
+            return;
+        }
+        if (getClients().stream().findFirst().filter(i -> i.equals(client)).isPresent()) {
+            throw new DuplicatedTransactionException();
+        }
         repository.save(client);
         getClients().add(client);
     }
 
     public void removeByRandomId(String random) {
+        if (isEmpty(random)) {
+            return;
+        }
         repository.deleteByRandomId(random);
         getClients().removeIf(i -> random.equals(i.getRandomId()));
-    }
-
-    public void removeByApiKey(String apiKey) {
-        repository.deleteByApiKey(apiKey);
-        getClients().removeIf(i -> i.getApiKey().equals(apiKey));
     }
 
     public Long getNumberOfRegisteredTransactions() {
