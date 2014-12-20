@@ -1,17 +1,16 @@
 package com.coinbasetraders.converter;
 
-import com.coinbase.api.Coinbase;
-import com.coinbase.api.CoinbaseBuilder;
 import com.coinbase.api.entity.Transfer;
 import com.coinbasetraders.dto.ClientDTO;
+import com.coinbasetraders.exception.CoinbaseTradersRuntimeException;
 import com.coinbasetraders.model.Client;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.coinbase.api.entity.Transfer.Type.BUY;
 import static com.coinbase.api.entity.Transfer.Type.SELL;
+import static java.util.stream.Collectors.toList;
 
 public class ClientConverter {
 
@@ -26,7 +25,7 @@ public class ClientConverter {
                 typeEnum = BUY;
                 break;
             default:
-                throw new RuntimeException("Not supported transaction type");
+                throw new CoinbaseTradersRuntimeException("Not supported transaction type");
         }
         return new Client(clientDTO.getRandomId(), clientDTO.getApiKey(), clientDTO.getApiSecret(), clientDTO.getLimit(), clientDTO.getAmount(), typeEnum);
     }
@@ -42,6 +41,6 @@ public class ClientConverter {
     }
 
     public static List<ClientDTO> modelToDto(Collection<Client> clients) {
-        return clients.stream().map(ClientConverter::modelToDto).collect(Collectors.toList());
+        return clients.stream().map(ClientConverter::modelToDto).collect(toList());
     }
 }
