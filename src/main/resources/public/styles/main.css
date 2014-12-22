@@ -110,9 +110,15 @@ main {
     margin: 20px 0 50px 0; }
     main nav .btn {
       font-size: 22px; }
-      @media (max-width: 500px) {
+      @media (max-width: 600px) {
         main nav .btn {
           font-size: 16px; } }
+      @media (max-width: 500px) {
+        main nav .btn {
+          font-size: 13px; } }
+      @media (max-width: 390px) {
+        main nav .btn {
+          font-size: 11px; } }
   main section {
     margin: 0 auto;
     text-align: left; }
@@ -134,6 +140,9 @@ main {
         width: 50%; }
       main section.clients-table tbody tr td {
         text-align: center; }
+
+footer {
+  display: none; }
 
 .btn-orange {
   background: none;

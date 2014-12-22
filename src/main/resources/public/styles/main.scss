@@ -2,6 +2,7 @@ $tablet: '1100px';
 $small-tablet: '800px';
 $big-mobile: '600px';
 $mobile: '500px';
+$small-mobile: '390px';
 
 $orange: #F38630;
 $red: #f24a30;
@@ -150,8 +151,14 @@ main {
     .btn {
       font-size: 22px;
 
-      @media (max-width: $mobile) {
+      @media (max-width: $big-mobile) {
         font-size: 16px;
+      }
+      @media (max-width: $mobile) {
+        font-size: 13px;
+      }
+      @media (max-width: $small-mobile) {
+        font-size: 11px;
       }
     }
   }
@@ -190,6 +197,10 @@ main {
       }
     }
   }
+}
+
+footer {
+  display: none;
 }
 
 .btn-orange {
