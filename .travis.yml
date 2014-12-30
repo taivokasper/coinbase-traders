@@ -22,8 +22,8 @@ script:
 - npm test
 after_success:
 - sshpass -p ${SERVER_PASSWORD} scp -o "StrictHostKeyChecking no" target/webpage-0.0.1.jar
-  root@5.231.53.194:/root/CoinbaseTraders/production/CoinbaseTraders.jar
+  root@5.231.53.194:/root/CoinbaseTraders/test/CoinbaseTraders.jar
 - sshpass -p ${SERVER_PASSWORD} ssh -o "StrictHostKeyChecking no" root@5.231.53.194
-  "cd /root/CoinbaseTraders && ./restart_production.sh"
+  "cd /root/CoinbaseTraders && ./restart_test.sh"
 after_script:
 - cat logs/coverage/lcov.info | npm run-script analyse
