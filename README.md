@@ -1,7 +1,7 @@
-CoinbaseTrader
+CoinbaseTraders
 ===============
 
-This is the source code for rule based Coinbase trader. 
+This is the source code for rule based CoinbaseTraders. 
 
 This webapp is hosted and freely available from [here](http://coinbasetraders.com).
 
