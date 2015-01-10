@@ -1,25 +1,33 @@
 <section class="about">
-	<h2>Automate Your <b>coinbase</b> wallets</h2>
-	<h4>
-		If you are tired of checking constantly changing Bitcoin price to buy or sell at the right time then you should automate those actions with coinbaseTraders.
-	</h4>
+    <h2>Automate Your <a href="https://www.coinbase.com"><b>Coinbase</b></a> wallets</h2>
+    <h4>
+        If you are tired of constantly checking the rapidly changing bitcoin prices then use
+        <b>CoinbaseTraders</b> to automate your buy and sell transactions
+        on <a href="https://www.coinbase.com">Coinbase</a>
+    </h4>
 
-	<h3>How does it work?</h3>
-	<p>
-		You write when and how much you want to buy or sell Bitcoins.
-		Traders will poll <b>coinbase API</b> after every 5 seconds and execute transactions for all rules that are met.
-		After the transaction all the executed rules are removed.
-	</p>
+    <h3>How does it work?</h3>
 
-	<h3>Selling</h3>
-	<p>
-		Creating a <b>selling</b> rule means that whenever the price in USD is at least the limit you specified the
-		transaction with the given amount in bitcoin is executed.
-	</p>
+    <p>
+        Specify the price and amount you want to sell your bitcoin at.
+        <br />
+        We poll <b><a href="https://www.coinbase.com/docs/api/overview">Coinbase API</a></b> every second and execute
+        transactions that meet the current price.
+        <br />
+        When your transaction is done we will remove it leaving no trace.
+    </p>
 
-	<h3>Buying</h3>
-	<p>
-		We buy when the price in USD is at most the limit you specified the transaction with the given amount in
-		EUR is executed.
-	</p>
+    <h3>Selling</h3>
+
+    <p>
+        Creating a <b>sell</b> rule means that whenever the price in USD is at least the limit you specified the
+        transaction with the given amount of bitcoin is executed.
+    </p>
+
+    <h3>Buying</h3>
+
+    <p>
+        Creating a <b>buy</b> rule means that whenever the price in USD is at most the limit you specified the
+        transaction with the given amount of EUR is executed.
+    </p>
 </section>
