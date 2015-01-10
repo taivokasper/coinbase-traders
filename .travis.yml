@@ -5,7 +5,7 @@ services: mongodb
 addons:
   code_climate:
     repo_token:
-      secure: "WyEdZGN/A9AuLfa1CnQOXGchAH8Zl94WbW+YgCozVIDzY+0dfpedUUeQEqFwhbVwpQYNW9DkPkM45cHgUFbYrbPMSfshm5X6hNpCu86N3wJT6tPxLCNWC1LAanflGgVqHwm2ARELxyBa8bIfFNsw29Wkz8cVX8jpHhAYbJs040k="
+      secure: "XS4ONxAAbN0y0GE081CBMEnSuxPpLepgwPdrmycX0ELkghGkbBr9p3/WaSJO2uUfLYtkPc1cZjB1Q+RlQ1F/gG0zzJoVTDULwvoITXDhG6T8XSYmVZ0vn2UTvMxwvtxi8H2FzOCEpenAoFS3LtWqUWgwgmpToh8S29mOLk6FXSM="
 
 virtualenv:
   system_site_packages: true
