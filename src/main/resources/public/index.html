@@ -9,51 +9,57 @@
     <!-- bower:css -->
     <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
     <link rel='stylesheet' href='lib/ng-table/ng-table.css' />
-    <link rel='stylesheet' href='lib/font-awesome/css/font-awesome.css' />
     <!-- endbower -->
 
     <!-- include: "type": "css", "files": "styles/**/*.css" -->
-    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
     <!-- /include -->
 
+    <!-- CDN -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Raleway|Quicksand:300,400,500' rel='stylesheet' type='text/css'>
+    <!-- /CDN -->
 </head>
 
 <body ng-controller="RootCtrl">
-    <header>
-        <div>
-            <section>
-                <h1><span style="font-weight: 300">coinbase</span>Traders</h1>
-                <h3>
-                    These little Traders automate your
-                    <a href="https://coinbase.com" target="_blank">Coinbase</a>
-                    wallet by selling and buying bitcoins
-                    based on price rules you set for them.
-                </h3>
-            </section>
-            <stats></stats>
-        </div>
-        <div id="traders-image"></div>
-    </header>
-    <main>
-        <nav>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-orange" ui-sref="about" ng-class="{active: isActive('/about')}">
-                    What is this?
-                </button>
-                <button type="button" class="btn btn-orange" ui-sref="new" ng-class="{active: isActive('/new')}">
-                    Add new client
-                </button>
-                <button type="button" class="btn btn-orange" ui-sref="existing" ng-class="{active: isActive('/existing')}">
-                    View/stop client
-                </button>
+    <div class="wrapper">
+        <header>
+            <div>
+                <section>
+                    <h1><span style="font-weight: 300">coinbase</span>Traders</h1>
+                    <h3>
+                        We automate your
+                        <a href="https://coinbase.com" target="_blank">Coinbase</a>
+                        wallet by selling and buying bitcoins
+                        based on price rules you set for us.
+                    </h3>
+                </section>
+                <stats></stats>
             </div>
-        </nav>
-        <section ui-view></section>
-    </main>
-    <footer>
-        Donations to 115ZD52yjW3zFGGyS1ttU3ZGi74U8MXizy
-    </footer>
+        </header>
+        <main>
+            <nav>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-orange" ui-sref="about" ng-class="{active: isActive('/about')}">
+                        What is this?
+                    </button>
+                    <button type="button" class="btn btn-orange" ui-sref="new" ng-class="{active: isActive('/new')}">
+                        Add new client
+                    </button>
+                    <button type="button" class="btn btn-orange" ui-sref="existing" ng-class="{active: isActive('/existing')}">
+                        View/stop client
+                    </button>
+                </div>
+            </nav>
+            <section ui-view></section>
+        </main>
+        <footer>
+            <a href="https://github.com/taivokasper/coinbase-traders">
+                <i class="fa fa-github"></i>
+                Open source project
+            </a>
+        </footer>
+    </div>
 
     <!-- bower:js -->
     <script src="lib/jquery/dist/jquery.js"></script>
@@ -75,5 +81,15 @@
     <script src="app/resources.js"></script>
     <script src="app/services.js"></script>
     <!-- /include -->
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-58438010-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

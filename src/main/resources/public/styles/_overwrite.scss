@@ -1,0 +1,67 @@
+// Overwrite Bootstrap styles
+.center-block {
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.alert {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.has-error .form-control {
+  border-color: $red;
+  color: $red;
+
+  &:focus {
+    border-color: $red;
+    box-shadow: none;
+  }
+}
+
+// Overwrite ng-table styles
+thead > tr > th,
+tbody > tr > td,
+tfoot > tr > td {
+  border-color: #fff !important;
+}
+
+[ng-table-pagination] {
+  display: none;
+}
+
+// Overwrite nsPopover
+[ns-popover] {
+  cursor: pointer;
+}
+
+.ns-popover-list-theme {
+  z-index: 100;
+
+  max-width: 300px;
+  margin-top: -10px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #666;
+  background: #fff;
+
+  -webkit-box-shadow: 2px 2px 1px 0 rgba(50, 50, 50, .3);
+  -moz-box-shadow: 2px 2px 1px 0 rgba(50, 50, 50, .3);
+  box-shadow: 2px 2px 1px 0 rgba(50, 50, 50, .3);
+
+  a {
+    color: $orange;
+  }
+
+  b {
+    color: #000;
+    font-weight: 600;
+  }
+}

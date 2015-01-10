@@ -1,0 +1,40 @@
+a {
+  color: $dark-blue;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+}
+
+h1 {
+  margin-bottom: 50px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+
+  @media (max-width: $big-mobile) {
+    font-size: 40px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 35px;
+  }
+}
+
+h2 {
+  margin-bottom: 40px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+}
+
+h3 {
+  color: #000;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+h4 {
+  font-size: 35px;
+}

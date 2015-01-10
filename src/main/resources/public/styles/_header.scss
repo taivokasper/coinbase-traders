@@ -1,0 +1,68 @@
+header {
+  overflow: hidden;
+  width: 530px;
+  margin: 0 auto;
+  padding: 50px 0 30px;
+
+  @media (max-width: $big-mobile) {
+    width: 90%;
+  }
+
+  h1,
+  h3 {
+    color: #fff;
+    text-align: center;
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+
+  section {
+    overflow: hidden;
+
+    @media (max-width: $small-tablet) {
+      margin: 0 auto;
+    }
+  }
+}
+
+stats {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+
+  div {
+    display: inline-block;
+    margin-right: 40px;
+    text-align: left;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    @media (max-width: $small-tablet) {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  h4 {
+    position: relative;
+    height: 36px;
+    padding-left: 15px;
+    font-weight: 600;
+
+    &:before {
+      content: '$';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      font-size: 16px;
+    }
+  }
+}

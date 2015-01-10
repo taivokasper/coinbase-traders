@@ -1,0 +1,84 @@
+main {
+  overflow: hidden;
+  width: 550px;
+
+  margin: 0 auto;
+  padding-bottom: 80px;
+
+  text-align: center;
+
+  @media (max-width: $big-mobile) {
+    width: 90%;
+  }
+
+  nav {
+    margin: 20px 0 50px;
+
+    .btn {
+      font-size: 22px;
+
+      @media (max-width: $big-mobile) {
+        font-size: 16px;
+      }
+
+      @media (max-width: $mobile) {
+        font-size: 13px;
+      }
+
+      @media (max-width: $small-mobile) {
+        font-size: 11px;
+      }
+    }
+  }
+
+  section {
+    margin: 0 auto;
+    text-align: left;
+
+  }
+
+  form {
+    margin: 0 auto;
+  }
+
+  label {
+    display: block;
+  }
+
+  .validation-msg {
+    margin: 10px 0 0 4px;
+    font-size: 12px;
+  }
+
+  .client-type {
+    margin: 40px 0;
+    text-align: center;
+
+    .btn {
+      font-size: 18px;
+    }
+  }
+
+  &.clients-table {
+    margin-top: 30px;
+
+    thead th:first-child {
+      width: 50%;
+    }
+
+    tbody td {
+      text-align: center;
+    }
+  }
+
+  .about {
+    h2 {
+      text-align: center;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+}

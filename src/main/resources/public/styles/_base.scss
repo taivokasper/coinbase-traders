@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  background: $orange;
+
+  font-family: 'Raleway', sans-serif;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+.btn-orange {
+  border: 1px solid #fff;
+  background: none;
+  box-shadow: none !important;
+
+  &.active,
+  &:hover,
+  &:focus {
+    color: $orange;
+    background: #fff;
+  }
+}
