@@ -5,6 +5,7 @@ import com.coinbase.api.entity.Quote;
 import com.coinbase.api.exception.CoinbaseException;
 import com.coinbasetraders.model.Client;
 import com.coinbasetraders.model.Stats;
+import com.coinbasetraders.repository.StatsRepository;
 import com.coinbasetraders.service.ClientService;
 import com.coinbasetraders.service.StatsService;
 import com.coinbasetraders.service.TransactionService;
@@ -17,6 +18,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -31,6 +33,8 @@ public class PricePoller {
     private TransactionService transactionService;
     @Autowired
     private StatsService statsService;
+    @Autowired
+    private StatsRepository statsRepository;
 
     @Scheduled(cron = "0/5 * * * * *")
     public void poll() {
@@ -67,6 +71,8 @@ public class PricePoller {
         Quote sellQuote = coinbase.getSellQuote(oneBitcoin);
         LOG.info("Current sell price is " + sellQuote.getSubtotal());
 
-        statsService.setStats(new Stats(buyQuote.getSubtotal().getAmount(), sellQuote.getSubtotal().getAmount()));
+        Stats stats = new Stats(new Date(), buyQuote.getSubtotal().getAmount(), sellQuote.getSubtotal().getAmount());
+        statsService.setStats(stats);
+        statsRepository.save(stats);
     }
 }
