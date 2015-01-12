@@ -59,26 +59,19 @@ main {
     }
   }
 
-  &.clients-table {
+  .clients-table {
     margin-top: 30px;
-
-    thead th:first-child {
-      width: 50%;
-    }
-
-    tbody td {
-      text-align: center;
-    }
+    text-align: center;
   }
 
   .about {
-    h2 {
-      text-align: center;
-    }
-
     h4 {
       font-size: 18px;
       line-height: 30px;
     }
+  }
+
+  h2 {
+    text-align: center;
   }
 }

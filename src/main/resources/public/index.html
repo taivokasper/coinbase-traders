@@ -8,7 +8,7 @@
 
     <!-- bower:css -->
     <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
-    <link rel='stylesheet' href='lib/ng-table/ng-table.css' />
+    <link rel='stylesheet' href='lib/ng-table/dist/ng-table.min.css' />
     <!-- endbower -->
 
     <!-- include: "type": "css", "files": "styles/**/*.css" -->
@@ -26,13 +26,7 @@
         <header>
             <div>
                 <section>
-                    <h1><span style="font-weight: 300">coinbase</span>Traders</h1>
-                    <h3>
-                        We automate your
-                        <a href="https://coinbase.com" target="_blank">Coinbase</a>
-                        wallet by selling and buying bitcoins
-                        based on price rules you set for us.
-                    </h3>
+                    <h1>coinbase<b>Traders</b></h1>
                 </section>
                 <stats></stats>
             </div>
@@ -67,7 +61,7 @@
     <script src="lib/ui-router/release/angular-ui-router.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="lib/ng-table/ng-table.js"></script>
+    <script src="lib/ng-table/dist/ng-table.min.js"></script>
     <script src="lib/angular-fcsa-number/src/fcsaNumber.js"></script>
     <script src="lib/nsPopover/src/nsPopover.js"></script>
     <script src="lib/log-it-down/dist/logItDown.js"></script>
@@ -91,5 +85,6 @@
         ga('create', 'UA-58438010-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <!-- /Google Analytics -->
 </body>
 </html>

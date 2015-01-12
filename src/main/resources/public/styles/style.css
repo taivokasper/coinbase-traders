@@ -1,15 +1,18 @@
 a {
   color: #286090;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none !important; }
   a:hover, a:focus {
     color: #000; }
 
+p {
+  color: #fefefe; }
+
 h1 {
-  margin-bottom: 50px;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
   font-size: 50px;
-  font-weight: 500; }
+  font-weight: 300; }
   @media (max-width: 600px) {
     h1 {
       font-size: 40px; } }
@@ -23,7 +26,6 @@ h2 {
   font-size: 28px; }
 
 h3 {
-  color: #000;
   font-size: 18px;
   line-height: 30px; }
 
@@ -192,24 +194,21 @@ main {
     text-align: center; }
     main .client-type .btn {
       font-size: 18px; }
-  main.clients-table {
-    margin-top: 30px; }
-    main.clients-table thead th:first-child {
-      width: 50%; }
-    main.clients-table tbody td {
-      text-align: center; }
-  main .about h2 {
+  main .clients-table {
+    margin-top: 30px;
     text-align: center; }
   main .about h4 {
     font-size: 18px;
     line-height: 30px; }
+  main h2 {
+    text-align: center; }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 40px;
-  padding: 10px;
+  height: 30px;
+  padding: 5px;
   background: #ce6b1e;
   text-align: center; }
   footer a {

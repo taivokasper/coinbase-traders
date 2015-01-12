@@ -1,6 +1,7 @@
 a {
   color: $dark-blue;
   cursor: pointer;
+  text-decoration: none !important;
 
   &:hover,
   &:focus {
@@ -8,16 +9,20 @@ a {
   }
 }
 
+p {
+  color: #fefefe;
+}
+
 h1 {
-  margin-bottom: 50px;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
   font-size: 50px;
-  font-weight: 500;
+  font-weight: 300;
 
   @media (max-width: $big-mobile) {
     font-size: 40px;
   }
+
   @media (max-width: $mobile) {
     font-size: 35px;
   }
@@ -30,7 +35,6 @@ h2 {
 }
 
 h3 {
-  color: #000;
   font-size: 18px;
   line-height: 30px;
 }
