@@ -33,3 +33,7 @@ Where do I get the API key and the API secret?
 That's easy, just go [here](https://www.coinbase.com/settings/api) and press "New API key" button.
 
 The API key must have a buy and sell permissions and make sure that it is enabled.
+
+License
+---------------------
+[Apache 2.0 License](//github.com/taivokasper/coinbase-traders/blob/master/LICENSE)
